@@ -225,14 +225,19 @@ section h2 {
     
     Cards are reusable components that contain related content.
     They have rounded corners, shadows, and hover effects for interactivity.
+    The entire card is now a clickable link for better UX.
 */
 .lesson-card {
+    display: block;                         /* Makes the anchor tag display as block */
     background-color: white;
     border-radius: 12px;                    /* Rounded corners */
     padding: 2rem;                          /* Internal spacing */
     box-shadow: var(--shadow);              /* Subtle shadow for depth */
     transition: transform 0.3s, box-shadow 0.3s;  /* Smooth hover animation */
     border: 1px solid var(--border-color); /* Subtle border */
+    text-decoration: none;                  /* Removes underline from link */
+    color: inherit;                         /* Inherits text color from parent */
+    cursor: pointer;                         /* Shows pointer cursor on hover */
 }
 
 /* 
@@ -244,6 +249,8 @@ section h2 {
 .lesson-card:hover {
     transform: translateY(-5px);  /* Moves card 5px upward */
     box-shadow: var(--shadow-lg);  /* Larger shadow for more depth */
+    text-decoration: none;         /* Ensures no underline appears */
+    color: inherit;                /* Maintains text color */
 }
 
 .lesson-number {
@@ -281,20 +288,20 @@ section h2 {
     transition: transform 0.2s;
 }
 
-.lesson-link:hover {
+.lesson-card:hover .lesson-link {
     transform: translateX(5px);
 }
 
 /* 
-    Focus State for Lesson Links
+    Focus State for Lesson Cards
     
-    Lesson links need clear focus indicators so keyboard users can see
-    which lesson they're about to navigate to.
+    When navigating with keyboard, the entire card should show focus.
+    This ensures keyboard users can see which card they're about to activate.
 */
-.lesson-link:focus {
-    outline: 2px solid var(--primary-color);
+.lesson-card:focus {
+    outline: 3px solid var(--primary-color);
     outline-offset: 4px;
-    border-radius: 4px;
+    border-radius: 12px;
 }
 
 /* Examples Section */
@@ -306,16 +313,29 @@ section h2 {
 }
 
 .example-card {
+    display: block;                         /* Makes the anchor tag display as block */
     background-color: white;
     border: 2px solid var(--border-color);
     border-radius: 12px;
     padding: 2rem;
     transition: border-color 0.3s, transform 0.3s;
+    text-decoration: none;                  /* Removes underline from link */
+    color: inherit;                         /* Inherits text color from parent */
+    cursor: pointer;                         /* Shows pointer cursor on hover */
 }
 
 .example-card:hover {
     border-color: var(--primary-color);
     transform: translateY(-3px);
+    text-decoration: none;         /* Ensures no underline appears */
+    color: inherit;                /* Maintains text color */
+}
+
+/* Focus state for example cards */
+.example-card:focus {
+    outline: 3px solid var(--primary-color);
+    outline-offset: 4px;
+    border-radius: 12px;
 }
 
 .example-card h3 {
@@ -335,19 +355,8 @@ section h2 {
     font-weight: 600;
 }
 
-.example-link:hover {
+.example-card:hover .example-link {
     text-decoration: underline;
-}
-
-/* 
-    Focus State for Example Links
-    
-    Example links use the secondary color, so we use a matching focus outline.
-*/
-.example-link:focus {
-    outline: 2px solid var(--secondary-color);
-    outline-offset: 4px;
-    border-radius: 4px;
 }
 
 /* Templates Section */
@@ -363,16 +372,29 @@ section h2 {
 }
 
 .template-card {
+    display: block;                         /* Makes the anchor tag display as block */
     background-color: white;
     border-radius: 12px;
     padding: 2rem;
     box-shadow: var(--shadow);
     transition: transform 0.3s;
     border-left: 4px solid var(--secondary-color);
+    text-decoration: none;                  /* Removes underline from link */
+    color: inherit;                         /* Inherits text color from parent */
+    cursor: pointer;                         /* Shows pointer cursor on hover */
 }
 
 .template-card:hover {
     transform: translateY(-3px);
+    text-decoration: none;         /* Ensures no underline appears */
+    color: inherit;                /* Maintains text color */
+}
+
+/* Focus state for template cards */
+.template-card:focus {
+    outline: 3px solid var(--secondary-color);
+    outline-offset: 4px;
+    border-radius: 12px;
 }
 
 .template-card h3 {
@@ -392,19 +414,8 @@ section h2 {
     font-weight: 600;
 }
 
-.template-link:hover {
+.template-card:hover .template-link {
     text-decoration: underline;
-}
-
-/* 
-    Focus State for Template Links
-    
-    Template links match the example link styling for consistency.
-*/
-.template-link:focus {
-    outline: 2px solid var(--secondary-color);
-    outline-offset: 4px;
-    border-radius: 4px;
 }
 
 /* GitHub Section */
