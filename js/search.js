@@ -227,10 +227,12 @@ function setupSearchUI() {
         searchContainer.appendChild(searchButton);
         searchContainer.appendChild(closeButton);
         
-        // Add to navigation
+        // Add search below the navigation menu
         const nav = document.querySelector('.nav-links');
-        if (nav && nav.parentElement) {
-            nav.parentElement.insertBefore(searchContainer, nav);
+        const container = document.querySelector('.navbar .container');
+        if (nav && container) {
+            // Insert search after nav-links but before closing div
+            nav.parentElement.insertBefore(searchContainer, nav.nextSibling);
         }
         
         // Handle Enter key in search input

@@ -37,6 +37,7 @@
     <link rel="stylesheet" href="css/navigation.css">
     <link rel="stylesheet" href="css/home.css">
     <link rel="stylesheet" href="css/search.css">
+    <link rel="stylesheet" href="css/sidebar.css">
     <!-- 
         Links to external CSS files that style this page.
         base.css contains foundational styles shared across all pages.
@@ -66,10 +67,10 @@
             Semantic HTML5 element that helps screen readers and
             search engines understand the page structure.
         -->
-        <nav class="navbar">
+        <nav class="navbar minimal">
             <!-- 
                 Navigation element wraps navigation links.
-                The 'navbar' class is used for CSS styling.
+                The 'navbar minimal' class makes the menu collapsed by default.
             -->
             <div class="container">
                 <!-- 
@@ -81,6 +82,9 @@
                     Main site title/logo. Using h1 indicates this is
                     the primary heading of the entire page.
                 -->
+                <button class="menu-toggle" aria-label="Open navigation menu" aria-expanded="false">
+                    ☰ Menu
+                </button>
                 <ul class="nav-links">
                     <!-- 
                         Unordered list for navigation items.
@@ -105,11 +109,78 @@
                         No # means it's a file path, not an anchor link.
                     -->
                 </ul>
+                
+                <!-- Search appears below the menu -->
             </div>
         </nav>
     </header>
 
-    <main>
+    <div class="page-layout">
+        <!-- Left Sidebar with Lessons -->
+        <aside class="lessons-sidebar">
+            <h2>Lessons</h2>
+            <nav class="lessons-nav">
+                <a href="lessons/01-html-basics.html" class="lesson-nav-item">
+                    <span class="lesson-nav-number">01</span>
+                    <div class="lesson-nav-content">
+                        <h3>HTML Basics</h3>
+                        <p>Learn the foundation of web pages: tags, elements, and structure</p>
+                    </div>
+                </a>
+                <a href="lessons/02-html-semantics.html" class="lesson-nav-item">
+                    <span class="lesson-nav-number">02</span>
+                    <div class="lesson-nav-content">
+                        <h3>Semantic HTML</h3>
+                        <p>Use meaningful tags to create well-structured, accessible pages</p>
+                    </div>
+                </a>
+                <a href="lessons/03-css-basics.html" class="lesson-nav-item">
+                    <span class="lesson-nav-number">03</span>
+                    <div class="lesson-nav-content">
+                        <h3>CSS Basics</h3>
+                        <p>Add style and visual appeal to your HTML pages</p>
+                    </div>
+                </a>
+                <a href="lessons/04-css-layout.html" class="lesson-nav-item">
+                    <span class="lesson-nav-number">04</span>
+                    <div class="lesson-nav-content">
+                        <h3>CSS Layout</h3>
+                        <p>Master layout techniques: flexbox, grid, and positioning</p>
+                    </div>
+                </a>
+                <a href="lessons/05-responsive-design.html" class="lesson-nav-item">
+                    <span class="lesson-nav-number">05</span>
+                    <div class="lesson-nav-content">
+                        <h3>Responsive Design</h3>
+                        <p>Make your websites look great on all devices</p>
+                    </div>
+                </a>
+                <a href="lessons/06-github-setup.html" class="lesson-nav-item">
+                    <span class="lesson-nav-number">06</span>
+                    <div class="lesson-nav-content">
+                        <h3>GitHub Setup</h3>
+                        <p>Create your GitHub account and first repository</p>
+                    </div>
+                </a>
+                <a href="lessons/07-github-workflow.html" class="lesson-nav-item">
+                    <span class="lesson-nav-number">07</span>
+                    <div class="lesson-nav-content">
+                        <h3>GitHub Workflow</h3>
+                        <p>Learn commits, branches, and pull requests</p>
+                    </div>
+                </a>
+                <a href="lessons/08-github-pages.html" class="lesson-nav-item">
+                    <span class="lesson-nav-number">08</span>
+                    <div class="lesson-nav-content">
+                        <h3>GitHub Pages</h3>
+                        <p>Deploy your website for the world to see</p>
+                    </div>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+    <main class="main-content">
         <section id="home" class="hero">
             <div class="container">
                 <h2>Welcome to Your Web Development Journey!</h2>
@@ -387,6 +458,7 @@
             </div>
         </section>
     </main>
+    </div>
 
     <footer>
         <div class="container">
