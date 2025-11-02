@@ -25,31 +25,55 @@
 </head>
 <body>
     <!-- 
-        Minimal Navigation Header
+        Navigation Header
         
-        On lesson pages, navigation is collapsed by default with a hamburger menu.
-        This keeps the page focused on content while still providing access
-        to site navigation when needed.
+        The navigation header includes a hamburger menu button on the left,
+        followed by the site title and subtitle. Clicking the hamburger menu
+        opens a side overlay navigation panel that slides in from the left.
+        This keeps the page focused on content while providing easy access
+        to all navigation when needed.
     -->
     <header>
         <nav class="navbar minimal">
             <div class="container">
-                <a href="../index.html" class="logo">Learn HTML & CSS</a>
                 <button class="menu-toggle" aria-label="Open navigation menu" aria-expanded="false">
                     ☰ Menu
                 </button>
-                <ul class="nav-links">
-                    <li><a href="../index.html#home">Home</a></li>
-                    <li><a href="../index.html#lessons">Lessons</a></li>
-                    <li><a href="../index.html#examples">Examples</a></li>
-                    <li><a href="../index.html#templates">Templates</a></li>
-                    <li><a href="../index.html#github">GitHub</a></li>
-                    <li><a href="../design-resources.html">Design Resources</a></li>
-                    <li><a href="../troubleshooting.html">Troubleshooting</a></li>
-                </ul>
+                <div class="site-header-content">
+                    <a href="../index.html" class="logo">Learn HTML, CSS, GitHub, and More!</a>
+                    <p class="site-subtitle">
+                        A series of tutorials (and experiments) from 
+                        <a href="https://jsaaron.com" target="_blank" rel="noopener noreferrer">Joshua Aaron</a> | 
+                        <a href="https://github.com/jsaaron" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    </p>
+                </div>
             </div>
         </nav>
     </header>
+
+    <div class="menu-overlay"></div>
+
+    <ul class="nav-links">
+        <li><a href="../index.html#home">Home</a></li>
+        <li class="nav-section-header">Lessons</li>
+        <li><a href="01-html-basics.html">01. HTML Basics</a></li>
+        <li><a href="02-html-semantics.html">02. Semantic HTML</a></li>
+        <li><a href="03-css-basics.html">03. CSS Basics</a></li>
+        <li><a href="04-css-layout.html">04. CSS Layout</a></li>
+        <li><a href="05-responsive-design.html">05. Responsive Design</a></li>
+        <li><a href="06-github-setup.html">06. GitHub Setup</a></li>
+        <li><a href="07-github-workflow.html">07. GitHub Workflow</a></li>
+        <li><a href="08-github-pages.html">08. GitHub Pages</a></li>
+        <li class="nav-section-header">Resources</li>
+        <li><a href="../index.html#examples">Examples</a></li>
+        <li><a href="../index.html#templates">Templates</a></li>
+        <li><a href="../index.html#github">GitHub Guides</a></li>
+        <li><a href="../design-resources.html">Design Resources</a></li>
+        <li><a href="../troubleshooting.html">Troubleshooting</a></li>
+        <li><a href="../reference.html">Quick Reference</a></li>
+        <li><a href="../project-ideas.html">Project Ideas</a></li>
+        <li><a href="../about.html">About</a></li>
+    </ul>
 
     <div class="lesson-container">
         <div class="lesson-nav-links">

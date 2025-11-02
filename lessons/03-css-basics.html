@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../css/navigation.css">
     <link rel="stylesheet" href="../css/components.css">
     <link rel="stylesheet" href="../css/lessons.css">
+    <link rel="stylesheet" href="../css/stylesheet-switcher.css">
     <!-- 
         Links to external CSS files organized by purpose.
         base.css: foundational styles and CSS variables
@@ -22,34 +23,59 @@
     <script src="../script.js"></script>
     <script src="../js/copy-code.js"></script>
     <script src="../js/progress-tracker.js"></script>
+    <script src="../js/stylesheet-switcher.js"></script>
 </head>
 <body>
     <!-- 
-        Minimal Navigation Header
+        Navigation Header
         
-        On lesson pages, navigation is collapsed by default with a hamburger menu.
-        This keeps the page focused on content while still providing access
-        to site navigation when needed.
+        The navigation header includes a hamburger menu button on the left,
+        followed by the site title and subtitle. Clicking the hamburger menu
+        opens a side overlay navigation panel that slides in from the left.
+        This keeps the page focused on content while providing easy access
+        to all navigation when needed.
     -->
     <header>
         <nav class="navbar minimal">
             <div class="container">
-                <a href="../index.html" class="logo">Learn HTML & CSS</a>
                 <button class="menu-toggle" aria-label="Open navigation menu" aria-expanded="false">
                     ☰ Menu
                 </button>
-                <ul class="nav-links">
-                    <li><a href="../index.html#home">Home</a></li>
-                    <li><a href="../index.html#lessons">Lessons</a></li>
-                    <li><a href="../index.html#examples">Examples</a></li>
-                    <li><a href="../index.html#templates">Templates</a></li>
-                    <li><a href="../index.html#github">GitHub</a></li>
-                    <li><a href="../design-resources.html">Design Resources</a></li>
-                    <li><a href="../troubleshooting.html">Troubleshooting</a></li>
-                </ul>
+                <div class="site-header-content">
+                    <a href="../index.html" class="logo">Learn HTML, CSS, GitHub, and More!</a>
+                    <p class="site-subtitle">
+                        A series of tutorials (and experiments) from 
+                        <a href="https://jsaaron.com" target="_blank" rel="noopener noreferrer">Joshua Aaron</a> | 
+                        <a href="https://github.com/jsaaron" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    </p>
+                </div>
             </div>
         </nav>
     </header>
+
+    <div class="menu-overlay"></div>
+
+    <ul class="nav-links">
+        <li><a href="../index.html#home">Home</a></li>
+        <li class="nav-section-header">Lessons</li>
+        <li><a href="01-html-basics.html">01. HTML Basics</a></li>
+        <li><a href="02-html-semantics.html">02. Semantic HTML</a></li>
+        <li><a href="03-css-basics.html">03. CSS Basics</a></li>
+        <li><a href="04-css-layout.html">04. CSS Layout</a></li>
+        <li><a href="05-responsive-design.html">05. Responsive Design</a></li>
+        <li><a href="06-github-setup.html">06. GitHub Setup</a></li>
+        <li><a href="07-github-workflow.html">07. GitHub Workflow</a></li>
+        <li><a href="08-github-pages.html">08. GitHub Pages</a></li>
+        <li class="nav-section-header">Resources</li>
+        <li><a href="../index.html#examples">Examples</a></li>
+        <li><a href="../index.html#templates">Templates</a></li>
+        <li><a href="../index.html#github">GitHub Guides</a></li>
+        <li><a href="../design-resources.html">Design Resources</a></li>
+        <li><a href="../troubleshooting.html">Troubleshooting</a></li>
+        <li><a href="../reference.html">Quick Reference</a></li>
+        <li><a href="../project-ideas.html">Project Ideas</a></li>
+        <li><a href="../about.html">About</a></li>
+    </ul>
 
     <div class="lesson-container">
         <div class="lesson-nav-links">
@@ -76,6 +102,23 @@
             <p>CSS works by targeting HTML elements using selectors and then applying visual properties to those elements. A CSS rule consists of a selector that identifies which elements to style, followed by a declaration block containing one or more property-value pairs that describe how those elements should look. The browser reads both the HTML and CSS files, matches the selectors to HTML elements, and applies the specified styles when rendering the page. This process happens separately from the HTML structure, which means you can completely redesign how a page looks by changing only the CSS file, without touching the HTML.</p>
 
             <p>Understanding CSS matters because it transforms plain HTML documents into visually appealing, branded, and user-friendly websites. Every website you visit uses CSS extensively to create its visual design. Learning CSS gives you control over typography, color schemes, spacing, layout, and visual hierarchy - all the elements that make websites engaging and easy to use.</p>
+        </div>
+
+        <div class="concept-section" style="background-color: var(--bg-light); padding: 2rem; border-radius: 8px; border-left: 4px solid var(--primary-color); margin: 2rem 0;">
+            <h2>Try It Yourself: CSS Theme Switcher</h2>
+            <p>To see the power of CSS in action, look for the <strong>🎨 theme switcher button</strong> in the bottom-right corner of this page. Click it to open the theme switcher, then try selecting different themes like <strong>"Classic"</strong>, <strong>"Dark Mode"</strong>, or <strong>"Colorful"</strong>.</p>
+            
+            <p><strong>What you'll notice:</strong></p>
+            <ul>
+                <li>The <em>entire page appearance changes</em> - colors, fonts, spacing, borders</li>
+                <li>The <em>HTML content stays exactly the same</em> - only the CSS is different</li>
+                <li>Each theme demonstrates different CSS properties working together</li>
+                <li>You can see what specific changes each theme makes listed in the switcher</li>
+            </ul>
+            
+            <p>This demonstrates the core principle of CSS: <strong>separation of structure (HTML) and presentation (CSS)</strong>. The same HTML can look completely different depending on which CSS file is applied. This is why web designers can create multiple design options for the same content, or why websites can offer "dark mode" without changing their HTML structure.</p>
+            
+            <p>The theme switcher uses JavaScript to dynamically swap CSS stylesheets, but the key lesson is that <strong>different CSS files produce dramatically different visual results from the same HTML</strong>. Try switching themes while reading this lesson to see how CSS transforms the page!</p>
         </div>
 
         <div class="concept-section">

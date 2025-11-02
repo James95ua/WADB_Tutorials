@@ -1,12 +1,13 @@
 /* 
     Navigation Styles
     
-    This file contains all header and navigation styles, including
-    both full navigation (homepage) and minimal navigation (lesson/guide pages)
-    with hamburger menu functionality.
+    This file contains all header and navigation styles for the site.
+    All pages use a consistent side overlay menu system that slides in from
+    the left when the hamburger menu button is clicked. The menu includes
+    a dark backdrop overlay and provides mobile-friendly navigation.
     
-    Students can learn about responsive navigation patterns and
-    accessible menu design.
+    Students can learn about responsive navigation patterns, overlay menus,
+    and accessible menu design.
 */
 
 /* 
@@ -33,14 +34,13 @@ header {
     Flexbox Layout for Navigation
     
     display: flex creates a flexible container that arranges children horizontally
-    by default. justify-content: space-between puts maximum space between items,
-    pushing the logo to the left and nav links to the right.
+    by default. The menu toggle is now on the left, followed by the logo/title.
     align-items: center vertically centers items within the flex container.
 */
 .navbar .container {
     display: flex;                      /* Creates flexible layout */
-    justify-content: space-between;     /* Maximum space between logo and nav */
     align-items: center;                /* Vertically centers all items */
+    gap: 1rem;                          /* Space between menu button and logo */
 }
 
 .logo {
@@ -55,75 +55,43 @@ header {
 }
 
 /* 
-    Full Navigation Styles (Homepage)
+    Site Title and Subtitle Container
     
-    When navigation is expanded or on homepage, all links are visible.
+    This container holds the site title (logo) and subtitle in a vertical stack.
+    It uses flexbox to arrange the title above the subtitle and takes up
+    the remaining space in the header after the menu button.
 */
-.nav-links {
-    display: flex;        /* Arranges list items horizontally */
-    list-style: none;     /* Removes default bullet points */
-    gap: 2rem;            /* Space between each navigation link */
-    margin: 0;            /* Removes default list margin */
-    padding: 0;           /* Removes default list padding */
+.site-header-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 
-/* 
-    Navigation Link Styles
-    
-    Links are styled to match the site design. The transition property
-    creates smooth color changes when hovering.
-*/
-.nav-links a {
-    text-decoration: none;        /* Removes default underline */
-    color: var(--text-color);      /* Default link color */
-    font-weight: 500;              /* Medium font weight */
-    transition: color 0.3s;        /* Smooth color change over 0.3 seconds */
+.site-subtitle {
+    font-size: 0.875rem;
+    color: var(--text-light);
+    font-weight: 400;
+    margin-top: 0.25rem;
+    line-height: 1.4;
 }
 
-/* 
-    Hover State for Links
-    
-    Pseudo-class :hover styles elements when users move their mouse over them.
-    This provides visual feedback that the link is interactive.
-*/
-.nav-links a:hover {
-    color: var(--primary-color);  /* Changes to blue on hover */
+.site-subtitle a {
+    color: var(--primary-color);
+    text-decoration: none;
 }
 
-/* 
-    Focus State for Navigation Links
-    
-    The :focus pseudo-class styles elements when they receive keyboard focus.
-    This is essential for keyboard accessibility - users navigating with Tab
-    need to see which element is currently focused.
-*/
-.nav-links a:focus {
-    outline: 2px solid var(--primary-color);  /* Blue outline for visibility */
-    outline-offset: 2px;                      /* Space between outline and element */
-    border-radius: 4px;                       /* Rounded corners on focus outline */
+.site-subtitle a:hover {
+    text-decoration: underline;
 }
 
-/* 
-    Active Navigation State
-    
-    The .active class is added by JavaScript when a navigation link corresponds
-    to the currently visible section. This provides visual feedback to users
-    showing which section of the page they're viewing.
-*/
-.nav-links a.active {
-    color: var(--primary-color);         /* Blue color for active state */
-    border-bottom: 2px solid var(--primary-color);  /* Underline indicator */
-    padding-bottom: 2px;                  /* Space for the underline */
-}
 
 /* 
     Hamburger Menu Button
     
-    Used for minimal navigation on lesson/guide pages.
-    Hidden by default on pages with full navigation.
+    Now positioned on the left side of navigation.
+    Always visible, as it controls the side overlay menu.
 */
 .menu-toggle {
-    display: none;  /* Hidden by default */
     background: none;
     border: none;
     cursor: pointer;
@@ -131,6 +99,11 @@ header {
     font-size: 1.5rem;
     color: var(--text-color);
     transition: color 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    min-height: 44px;
 }
 
 .menu-toggle:hover,
@@ -142,53 +115,107 @@ header {
 }
 
 /* 
-    Minimal Navigation Styles
+    Side Overlay Menu
     
-    For lesson and guide pages, navigation is collapsed by default
-    and can be expanded via hamburger menu.
+    Navigation menu slides in from the left as an overlay.
+    This provides a mobile-friendly navigation experience
+    that doesn't push content around.
 */
-.navbar.minimal .nav-links {
-    display: none;  /* Hidden by default on minimal navigation pages */
-    position: absolute;
-    top: 100%;      /* Positioned directly below the header */
+
+/* Backdrop overlay - darkens the page when menu is open */
+.menu-overlay {
+    position: fixed;
+    top: 0;
     left: 0;
     right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Side menu panel */
+.nav-links {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 320px;
+    max-width: 85vw;
     background-color: var(--bg-color);
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    padding: 2rem 0;
+    overflow-y: auto;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    display: flex;
     flex-direction: column;
     gap: 0;
-    padding: 1rem 0;
-    box-shadow: var(--shadow-lg);
-    border-top: 1px solid var(--border-color);
+    list-style: none;
+    margin: 0;
 }
 
-/* Navigation is visible when expanded */
-.navbar.minimal .nav-links.expanded {
-    display: flex;
+/* Menu slides in when expanded */
+.nav-links.expanded {
+    transform: translateX(0);
 }
 
-.navbar.minimal .nav-links li {
+.nav-links li {
     width: 100%;
 }
 
-.navbar.minimal .nav-links a {
+.nav-links a {
     display: block;
-    padding: 0.75rem 2rem;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
     border-bottom: 1px solid var(--border-color);
+    transition: background-color 0.2s, color 0.2s;
 }
 
-.navbar.minimal .nav-links a:hover {
+.nav-links a:hover,
+.nav-links a:focus {
     background-color: var(--bg-light);
+    color: var(--primary-color);
 }
 
-/* Show hamburger menu button on minimal navigation pages */
-.navbar.minimal .menu-toggle {
-    display: block;
+.nav-links a.active {
+    background-color: var(--bg-light);
+    color: var(--primary-color);
+    border-left: 4px solid var(--primary-color);
+    padding-left: calc(2rem - 4px);
+}
+
+/* Navigation section headers (e.g., "Lessons", "Resources") */
+.nav-section-header {
+    padding: 1rem 2rem 0.5rem 2rem;
+    font-weight: 700;
+    font-size: 0.875rem;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: 0.5rem;
+    border-bottom: none;
+}
+
+.nav-section-header:first-child {
+    margin-top: 0;
 }
 
 /* 
     Menu Invitation Text
     
-    Optional text that invites users to click for more navigation.
+    Optional utility class for displaying invitation text next to the menu button.
+    Currently not used in the site but available for future enhancements.
 */
 .menu-invitation {
     display: none;
@@ -204,52 +231,21 @@ header {
 /* 
     Responsive Navigation
     
-    On mobile devices, even the homepage uses a hamburger menu
-    for better usability on small screens.
+    The side overlay menu works well on all screen sizes.
+    On mobile, it takes up more of the screen width for easier tapping.
 */
 @media (max-width: 768px) {
-    /* Homepage navigation becomes hamburger menu on mobile */
-    .navbar:not(.minimal) .nav-links {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background-color: var(--bg-color);
-        flex-direction: column;
-        gap: 0;
-        padding: 1rem 0;
-        box-shadow: var(--shadow-lg);
-        border-top: 1px solid var(--border-color);
-    }
-    
-    .navbar:not(.minimal) .nav-links.expanded {
-        display: flex;
-    }
-    
-    .navbar:not(.minimal) .nav-links li {
-        width: 100%;
-    }
-    
-    .navbar:not(.minimal) .nav-links a {
-        display: block;
-        padding: 0.75rem 2rem;
-        border-bottom: 1px solid var(--border-color);
-    }
-    
-    .navbar:not(.minimal) .nav-links a:hover {
-        background-color: var(--bg-light);
-    }
-    
-    /* Show hamburger menu on mobile for all pages */
-    .menu-toggle {
-        display: block;
-    }
-    
-    /* Tighter spacing for navigation on mobile */
     .nav-links {
-        gap: 1rem;        /* Reduced spacing between links */
-        font-size: 0.9rem; /* Slightly smaller text */
+        width: 280px;
+        max-width: 90vw;
+    }
+    
+    .logo {
+        font-size: 1.25rem;
+    }
+    
+    .site-subtitle {
+        font-size: 0.75rem;
     }
 }
 

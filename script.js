@@ -67,59 +67,82 @@ window.addEventListener('scroll', () => {
 });
 
 /* 
-    Hamburger Menu Toggle
+    Hamburger Menu Toggle with Side Overlay
     
-    This code handles the hamburger menu for minimal navigation.
-    It toggles the visibility of the navigation menu when the
-    hamburger button is clicked. This is used on lesson and guide
-    pages to provide a clean, minimal navigation experience.
+    This code handles the hamburger menu with a side overlay navigation.
+    When the menu button is clicked, a side panel slides in from the left
+    with a dark backdrop overlay. This provides a mobile-friendly navigation
+    experience that doesn't push content around.
     
-    Students can learn about interactive UI patterns and accessibility
-    considerations when building navigation menus.
+    Students can learn about interactive UI patterns, overlay menus, and
+    accessibility considerations when building navigation menus.
 */
 
 // Wait for the DOM to be fully loaded before accessing elements
 document.addEventListener('DOMContentLoaded', () => {
     // Find the hamburger menu button (if it exists on the page)
     const menuToggle = document.querySelector('.menu-toggle');
-    // Find the navigation links container
+    // Find the navigation links container (side overlay menu)
     const navLinks = document.querySelector('.nav-links');
+    // Find the backdrop overlay
+    const menuOverlay = document.querySelector('.menu-overlay');
     
-    // Only set up menu toggle if both elements exist
+    // Function to open the menu
+    const openMenu = () => {
+        if (navLinks) navLinks.classList.add('expanded');
+        if (menuOverlay) menuOverlay.classList.add('active');
+        if (menuToggle) {
+            menuToggle.setAttribute('aria-expanded', 'true');
+            menuToggle.setAttribute('aria-label', 'Close navigation menu');
+        }
+        // Prevent body scrolling when menu is open
+        document.body.style.overflow = 'hidden';
+    };
+    
+    // Function to close the menu
+    const closeMenu = () => {
+        if (navLinks) navLinks.classList.remove('expanded');
+        if (menuOverlay) menuOverlay.classList.remove('active');
+        if (menuToggle) {
+            menuToggle.setAttribute('aria-expanded', 'false');
+            menuToggle.setAttribute('aria-label', 'Open navigation menu');
+        }
+        // Restore body scrolling
+        document.body.style.overflow = '';
+    };
+    
+    // Only set up menu toggle if elements exist
     if (menuToggle && navLinks) {
-        // Add click event listener to the hamburger button
-        menuToggle.addEventListener('click', () => {
-            // Toggle the 'expanded' class on the navigation links
-            // This class is defined in navigation.css to show/hide the menu
-            navLinks.classList.toggle('expanded');
-            
-            // Update ARIA attribute for screen readers
-            // aria-expanded tells assistive technologies whether the menu is open
-            const isExpanded = navLinks.classList.contains('expanded');
-            menuToggle.setAttribute('aria-expanded', isExpanded);
-            
-            // Update button text for screen readers
-            menuToggle.setAttribute('aria-label', 
-                isExpanded ? 'Close navigation menu' : 'Open navigation menu');
+        // Toggle menu when hamburger button is clicked
+        menuToggle.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevent event bubbling
+            if (navLinks.classList.contains('expanded')) {
+                closeMenu();
+            } else {
+                openMenu();
+            }
         });
+        
+        // Close menu when clicking on the backdrop overlay
+        if (menuOverlay) {
+            menuOverlay.addEventListener('click', () => {
+                closeMenu();
+            });
+        }
         
         // Close menu when clicking on a link (useful on mobile)
         navLinks.addEventListener('click', (e) => {
             // Only close if clicking on an actual link, not the container
             if (e.target.tagName === 'A') {
-                navLinks.classList.remove('expanded');
-                menuToggle.setAttribute('aria-expanded', 'false');
-                menuToggle.setAttribute('aria-label', 'Open navigation menu');
+                // Small delay to allow navigation to happen first
+                setTimeout(closeMenu, 100);
             }
         });
         
-        // Close menu when clicking outside of it
-        document.addEventListener('click', (e) => {
-            // Check if click is outside both the menu button and navigation links
-            if (!menuToggle.contains(e.target) && !navLinks.contains(e.target)) {
-                navLinks.classList.remove('expanded');
-                menuToggle.setAttribute('aria-expanded', 'false');
-                menuToggle.setAttribute('aria-label', 'Open navigation menu');
+        // Close menu when pressing Escape key (keyboard accessibility)
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navLinks.classList.contains('expanded')) {
+                closeMenu();
             }
         });
     }

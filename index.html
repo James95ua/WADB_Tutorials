@@ -28,7 +28,7 @@
         It tells mobile browsers to use the device width instead of
         assuming a desktop width, making the site mobile-friendly.
     -->
-    <title>Learn HTML & CSS - Build Your First Website</title>
+    <title>Learn HTML, CSS, GitHub, and More! - Build Your First Website</title>
     <!-- 
         The title appears in the browser tab and in search results.
         It should be descriptive and concise.
@@ -37,7 +37,6 @@
     <link rel="stylesheet" href="css/navigation.css">
     <link rel="stylesheet" href="css/home.css">
     <link rel="stylesheet" href="css/search.css">
-    <link rel="stylesheet" href="css/sidebar.css">
     <!-- 
         Links to external CSS files that style this page.
         base.css contains foundational styles shared across all pages.
@@ -61,6 +60,14 @@
         with keyboards or screen readers.
     -->
     <a href="#home" class="skip-link">Skip to main content</a>
+    
+    <!-- 
+        Navigation Header
+        
+        The header contains the hamburger menu button (on the left), site title,
+        and subtitle. Clicking the hamburger menu opens a side overlay navigation
+        panel that slides in from the left with a dark backdrop.
+    -->
     <header>
         <!-- 
             Header element contains introductory content or navigation.
@@ -69,22 +76,53 @@
         -->
         <nav class="navbar minimal">
             <!-- 
-                Navigation element wraps navigation links.
-                The 'navbar minimal' class makes the menu collapsed by default.
+                Navigation element wraps the header content.
+                The 'navbar minimal' class is used consistently across all pages.
+                The navigation menu is accessed via the hamburger button and opens
+                as a side overlay panel with a backdrop.
             -->
             <div class="container">
                 <!-- 
                     Container div limits content width and centers it.
                     This is a common pattern for responsive design.
                 -->
-                <h1 class="logo">Learn HTML & CSS</h1>
-                <!-- 
-                    Main site title/logo. Using h1 indicates this is
-                    the primary heading of the entire page.
-                -->
                 <button class="menu-toggle" aria-label="Open navigation menu" aria-expanded="false">
                     ☰ Menu
                 </button>
+                <!-- 
+                    Hamburger menu button positioned on the left.
+                    Opens the side overlay navigation menu.
+                -->
+                <div class="site-header-content">
+                    <h1 class="logo">Learn HTML, CSS, GitHub, and More!</h1>
+                    <!-- 
+                        Main site title/logo. Using h1 indicates this is
+                        the primary heading of the entire page.
+                    -->
+                    <p class="site-subtitle">
+                        A series of tutorials (and experiments) from 
+                        <a href="https://jsaaron.com" target="_blank" rel="noopener noreferrer">Joshua Aaron</a> | 
+                        <a href="https://github.com/jsaaron" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    </p>
+                    <!-- 
+                        Site subtitle with attribution to the creator.
+                        Links to Joshua Aaron's website and GitHub profile.
+                    -->
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 
+        Menu Overlay Backdrop
+        Darkens the page when the navigation menu is open.
+    -->
+    <div class="menu-overlay"></div>
+
+    <!-- 
+        Navigation Menu (Side Overlay)
+        Slides in from the left when the hamburger menu is clicked.
+    -->
                 <ul class="nav-links">
                     <!-- 
                         Unordered list for navigation items.
@@ -96,91 +134,32 @@
                         The href with # links to sections on the same page
                         (internal navigation).
                     -->
-                    <li><a href="#lessons">Lessons</a></li>
+                    <li class="nav-section-header">Lessons</li>
+                    <li><a href="lessons/01-html-basics.html">01. HTML Basics</a></li>
+                    <li><a href="lessons/02-html-semantics.html">02. Semantic HTML</a></li>
+                    <li><a href="lessons/03-css-basics.html">03. CSS Basics</a></li>
+                    <li><a href="lessons/04-css-layout.html">04. CSS Layout</a></li>
+                    <li><a href="lessons/05-responsive-design.html">05. Responsive Design</a></li>
+                    <li><a href="lessons/06-github-setup.html">06. GitHub Setup</a></li>
+                    <li><a href="lessons/07-github-workflow.html">07. GitHub Workflow</a></li>
+                    <li><a href="lessons/08-github-pages.html">08. GitHub Pages</a></li>
+                    <li class="nav-section-header">Resources</li>
                     <li><a href="#examples">Examples</a></li>
                     <li><a href="#templates">Templates</a></li>
-                    <li><a href="#github">GitHub</a></li>
+                    <li><a href="#github">GitHub Guides</a></li>
                     <li><a href="design-resources.html">Design Resources</a></li>
                     <li><a href="troubleshooting.html">Troubleshooting</a></li>
                     <li><a href="reference.html">Quick Reference</a></li>
                     <li><a href="project-ideas.html">Project Ideas</a></li>
+                    <li><a href="about.html">About</a></li>
                     <!-- 
                         This link goes to a separate page (not a section).
                         No # means it's a file path, not an anchor link.
                     -->
                 </ul>
-                
-                <!-- Search appears below the menu -->
-            </div>
-        </nav>
-    </header>
 
-    <div class="page-layout">
-        <!-- Left Sidebar with Lessons -->
-        <aside class="lessons-sidebar">
-            <h2>Lessons</h2>
-            <nav class="lessons-nav">
-                <a href="lessons/01-html-basics.html" class="lesson-nav-item">
-                    <span class="lesson-nav-number">01</span>
-                    <div class="lesson-nav-content">
-                        <h3>HTML Basics</h3>
-                        <p>Learn the foundation of web pages: tags, elements, and structure</p>
-                    </div>
-                </a>
-                <a href="lessons/02-html-semantics.html" class="lesson-nav-item">
-                    <span class="lesson-nav-number">02</span>
-                    <div class="lesson-nav-content">
-                        <h3>Semantic HTML</h3>
-                        <p>Use meaningful tags to create well-structured, accessible pages</p>
-                    </div>
-                </a>
-                <a href="lessons/03-css-basics.html" class="lesson-nav-item">
-                    <span class="lesson-nav-number">03</span>
-                    <div class="lesson-nav-content">
-                        <h3>CSS Basics</h3>
-                        <p>Add style and visual appeal to your HTML pages</p>
-                    </div>
-                </a>
-                <a href="lessons/04-css-layout.html" class="lesson-nav-item">
-                    <span class="lesson-nav-number">04</span>
-                    <div class="lesson-nav-content">
-                        <h3>CSS Layout</h3>
-                        <p>Master layout techniques: flexbox, grid, and positioning</p>
-                    </div>
-                </a>
-                <a href="lessons/05-responsive-design.html" class="lesson-nav-item">
-                    <span class="lesson-nav-number">05</span>
-                    <div class="lesson-nav-content">
-                        <h3>Responsive Design</h3>
-                        <p>Make your websites look great on all devices</p>
-                    </div>
-                </a>
-                <a href="lessons/06-github-setup.html" class="lesson-nav-item">
-                    <span class="lesson-nav-number">06</span>
-                    <div class="lesson-nav-content">
-                        <h3>GitHub Setup</h3>
-                        <p>Create your GitHub account and first repository</p>
-                    </div>
-                </a>
-                <a href="lessons/07-github-workflow.html" class="lesson-nav-item">
-                    <span class="lesson-nav-number">07</span>
-                    <div class="lesson-nav-content">
-                        <h3>GitHub Workflow</h3>
-                        <p>Learn commits, branches, and pull requests</p>
-                    </div>
-                </a>
-                <a href="lessons/08-github-pages.html" class="lesson-nav-item">
-                    <span class="lesson-nav-number">08</span>
-                    <div class="lesson-nav-content">
-                        <h3>GitHub Pages</h3>
-                        <p>Deploy your website for the world to see</p>
-                    </div>
-                </a>
-            </nav>
-        </aside>
-
-        <!-- Main Content Area -->
-    <main class="main-content">
+    <!-- Main Content Area -->
+    <main>
         <section id="home" class="hero">
             <div class="container">
                 <h2>Welcome to Your Web Development Journey!</h2>
@@ -458,11 +437,10 @@
             </div>
         </section>
     </main>
-    </div>
 
     <footer>
         <div class="container">
-            <p>&copy; 2024 HTML & CSS Tutorial. Start building today!</p>
+            <p>&copy; 2024 Learn HTML, CSS, GitHub, and More! | Created by <a href="https://jsaaron.com" target="_blank" rel="noopener noreferrer">Joshua Aaron</a></p>
         </div>
     </footer>
 
