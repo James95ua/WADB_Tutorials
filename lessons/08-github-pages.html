@@ -15,7 +15,13 @@
         components.css: shared components like learning-outcomes and code-example
         lessons.css: lesson page-specific styles
     -->
+    <!-- Prism.js for syntax highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
     <script src="../script.js"></script>
+    <script src="../js/copy-code.js"></script>
+    <script src="../js/progress-tracker.js"></script>
 </head>
 <body>
     <!-- 
@@ -39,6 +45,7 @@
                     <li><a href="../index.html#templates">Templates</a></li>
                     <li><a href="../index.html#github">GitHub</a></li>
                     <li><a href="../design-resources.html">Design Resources</a></li>
+                    <li><a href="../troubleshooting.html">Troubleshooting</a></li>
                 </ul>
             </div>
         </nav>
@@ -62,28 +69,144 @@
 
         <div class="concept-section">
             <h2>What is GitHub Pages and Why Use It?</h2>
-            <p>GitHub Pages is a free static website hosting service provided by GitHub. It takes files from a GitHub repository and publishes them as a live website that anyone can visit on the internet. For HTML and CSS projects, GitHub Pages provides an easy way to publish websites without needing to purchase web hosting, configure servers, or manage technical infrastructure.</p>
+            
+            <p><strong>GitHub Pages</strong> is a <em>free static website hosting service</em> provided by GitHub. It takes files from a GitHub repository and publishes them as a <strong>live website</strong> that anyone can visit on the internet.</p>
+            
+            <p>For HTML and CSS projects, GitHub Pages provides an easy way to publish websites without needing to:</p>
+            
+            <ul>
+                <li><strong>Purchase web hosting</strong></li>
+                <li><strong>Configure servers</strong></li>
+                <li><strong>Manage technical infrastructure</strong></li>
+            </ul>
 
-            <p>GitHub Pages works by serving files directly from your GitHub repository. When you enable GitHub Pages for a repository, GitHub automatically takes the HTML, CSS, and other files you've stored there and makes them accessible through a web address. Each time you update files in your repository, GitHub automatically updates the published website, so your live site always reflects your latest changes. This integration between your code storage and website hosting simplifies the process of publishing and maintaining websites.</p>
+            <h3>How GitHub Pages Works</h3>
+            <p>GitHub Pages works by <strong>serving files directly from your GitHub repository</strong>. When you enable GitHub Pages for a repository, GitHub automatically:</p>
+            
+            <ul>
+                <li><strong>Takes</strong> the HTML, CSS, and other files you've stored there</li>
+                <li><strong>Makes them accessible</strong> through a web address</li>
+                <li><strong>Updates automatically</strong> each time you update files in your repository</li>
+            </ul>
+            
+            <p>Your live site always reflects your latest changes. This integration between your <strong>code storage and website hosting</strong> simplifies the process of publishing and maintaining websites.</p>
+            
+            <p>Learn more in GitHub's <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages" target="_blank">GitHub Pages documentation</a>.</p>
 
-            <p>Using GitHub Pages matters because it removes barriers to publishing websites online. Traditionally, publishing a website required finding and paying for web hosting, understanding how to upload files to servers, and managing technical details that can be intimidating for beginners. GitHub Pages eliminates these barriers by providing free hosting directly connected to where you're already storing your code, making it possible to publish websites immediately after learning HTML and CSS basics.</p>
+            <h3>Why GitHub Pages Matters</h3>
+            <p>Using GitHub Pages matters because it <strong>removes barriers</strong> to publishing websites online.</p>
+            
+            <p><strong>Traditionally, publishing a website required:</strong></p>
+            <ul>
+                <li><strong>Finding and paying</strong> for web hosting</li>
+                <li><strong>Understanding</strong> how to upload files to servers</li>
+                <li><strong>Managing</strong> technical details that can be intimidating for beginners</li>
+            </ul>
+            
+            <p><strong>GitHub Pages eliminates these barriers</strong> by providing:</p>
+            <ul>
+                <li><strong>Free hosting</strong> directly connected to where you're already storing your code</li>
+                <li>The ability to publish websites <strong>immediately</strong> after learning HTML and CSS basics</li>
+                <li>No need to learn server management or file transfer protocols</li>
+            </ul>
 
-            <p>GitHub Pages is particularly well-suited for static websites built with HTML, CSS, and JavaScript. Static websites are those that don't require server-side processing or databases - they're just files that browsers download and display. For learning web development, this covers the vast majority of projects you'll create. Portfolio sites, documentation, project showcases, and simple interactive websites all work perfectly with GitHub Pages.</p>
+            <h3>What Types of Websites Work with GitHub Pages?</h3>
+            <p>GitHub Pages is particularly well-suited for <strong>static websites</strong> built with HTML, CSS, and JavaScript.</p>
+            
+            <p><strong>Static websites</strong> are those that don't require:</p>
+            <ul>
+                <li><strong>Server-side processing</strong></li>
+                <li><strong>Databases</strong></li>
+                <li><strong>Backend functionality</strong></li>
+            </ul>
+            
+            <p>They're just files that browsers download and display. For learning web development, this covers the <em>vast majority of projects</em> you'll create.</p>
+            
+            <p><strong>Perfect for GitHub Pages:</strong></p>
+            <ul>
+                <li><strong>Portfolio sites</strong></li>
+                <li><strong>Documentation</strong></li>
+                <li><strong>Project showcases</strong></li>
+                <li><strong>Simple interactive websites</strong> (with JavaScript)</li>
+                <li><strong>Personal blogs</strong> (with static site generators)</li>
+            </ul>
 
-            <p>The free nature of GitHub Pages makes it accessible for students, learners, and anyone building personal or small project websites. There are no usage limits for reasonable personal use, and the service includes HTTPS encryption automatically, ensuring your websites load securely. This combination of ease, integration with GitHub, and zero cost makes GitHub Pages an ideal solution for publishing the websites you build while learning web development.</p>
+            <h3>Benefits of GitHub Pages</h3>
+            <p>The free nature of GitHub Pages makes it accessible for students, learners, and anyone building personal or small project websites.</p>
+            
+            <p><strong>Key benefits:</strong></p>
+            <ul>
+                <li><strong>No usage limits</strong> for reasonable personal use</li>
+                <li><strong>HTTPS encryption automatically</strong> - ensures your websites load securely</li>
+                <li><strong>Easy integration</strong> with GitHub repositories</li>
+                <li><strong>Automatic updates</strong> when you commit changes</li>
+                <li><strong>Zero cost</strong> - completely free</li>
+            </ul>
+            
+            <p>This combination of <strong>ease, integration with GitHub, and zero cost</strong> makes GitHub Pages an ideal solution for publishing the websites you build while learning web development.</p>
         </div>
 
         <div class="concept-section">
             <h2>Understanding GitHub Pages URLs</h2>
-            <p>GitHub Pages provides each published website with a unique URL where visitors can access it. Understanding how these URLs work helps you share your websites and understand the relationship between your repository and your published site.</p>
+            
+            <p>GitHub Pages provides each published website with a <strong>unique URL</strong> where visitors can access it. Understanding how these URLs work helps you share your websites and understand the relationship between your repository and your published site.</p>
 
-            <p>For repositories in personal accounts, GitHub Pages URLs follow a specific pattern: username.github.io/repository-name. For example, if your GitHub username is "johndoe" and your repository is called "my-website", your GitHub Pages URL would be "johndoe.github.io/my-website". This URL structure makes it easy to predict your website address based on your repository name.</p>
+            <h3>Standard Repository URLs</h3>
+            <p>For repositories in personal accounts, GitHub Pages URLs follow a specific pattern:</p>
+            
+            <div class="code-example">
+                <code>username.github.io/repository-name</code>
+            </div>
+            
+            <p><strong>Example:</strong> If your GitHub username is <code>"johndoe"</code> and your repository is called <code>"my-website"</code>, your GitHub Pages URL would be:</p>
+            
+            <div class="code-example">
+                <code>https://johndoe.github.io/my-website</code>
+            </div>
+            
+            <p>This URL structure makes it easy to <strong>predict your website address</strong> based on your repository name.</p>
 
-            <p>There's also a special repository format where if you create a repository named exactly "username.github.io" (replacing "username" with your actual GitHub username), GitHub Pages serves it from the root domain without the repository name. So "johndoe.github.io" repository would be accessible at just "johndoe.github.io" rather than "johndoe.github.io/johndoe.github.io". This format is useful if you want a shorter URL or plan to use a custom domain name later.</p>
+            <h3>Special Repository Format: username.github.io</h3>
+            <p>There's also a <strong>special repository format</strong> where if you create a repository named exactly <code>"username.github.io"</code> (replacing "username" with your actual GitHub username), GitHub Pages serves it from the root domain <em>without the repository name</em>.</p>
+            
+            <p><strong>Example:</strong> If you create a repository called <code>"johndoe.github.io"</code>, it would be accessible at:</p>
+            
+            <div class="code-example">
+                <code>https://johndoe.github.io</code>
+            </div>
+            
+            <p>Rather than <code>https://johndoe.github.io/johndoe.github.io</code>.</p>
+            
+            <p><strong>This format is useful if you want:</strong></p>
+            <ul>
+                <li>A <strong>shorter URL</strong></li>
+                <li>To plan to use a <strong>custom domain name</strong> later</li>
+                <li>A <strong>cleaner, more professional</strong> web address</li>
+            </ul>
+            
+            <p>Learn more about custom domains in GitHub's <a href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site" target="_blank">custom domain documentation</a>.</p>
 
-            <p>GitHub automatically provides HTTPS encryption for all GitHub Pages sites, so your URLs will use "https://" rather than "http://". This secure connection protects visitors and is required for many modern web features. The HTTPS is automatic and requires no configuration on your part.</p>
+            <h3>HTTPS Encryption</h3>
+            <p>GitHub automatically provides <strong>HTTPS encryption</strong> for all GitHub Pages sites, so your URLs will use <code>"https://"</code> rather than <code>"http://"</code>.</p>
+            
+            <p>This secure connection:</p>
+            <ul>
+                <li><strong>Protects visitors</strong> from security threats</li>
+                <li>Is <strong>required</strong> for many modern web features</li>
+                <li>Is <strong>automatic</strong> and requires no configuration on your part</li>
+            </ul>
 
-            <p>After enabling GitHub Pages, GitHub displays your website URL in the repository settings, making it easy to copy and share. You can bookmark this URL, share it with others, or use it to access your published website from any device. The URL remains active as long as your repository exists and GitHub Pages remains enabled.</p>
+            <h3>Accessing Your URL</h3>
+            <p>After enabling GitHub Pages, GitHub displays your website URL in the repository settings, making it easy to copy and share.</p>
+            
+            <p>You can:</p>
+            <ul>
+                <li><strong>Bookmark</strong> this URL</li>
+                <li><strong>Share it</strong> with others</li>
+                <li><strong>Use it</strong> to access your published website from any device</li>
+            </ul>
+            
+            <p>The URL remains <strong>active as long as</strong> your repository exists and GitHub Pages remains enabled.</p>
         </div>
 
         <div class="concept-section">

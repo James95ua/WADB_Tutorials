@@ -45,18 +45,135 @@
         </div>
         <div class="concept-section">
             <h2>Viewing Commit History</h2>
-            <p>Understanding how to view commit history helps you track your project's development and understand what changed over time. Each repository includes a complete history of all commits, showing who made changes, when they were made, and what specifically changed.</p>
-            <p>To view commit history, navigate to your repository and look for a link or button showing the number of commits, typically near the top of the repository page. Clicking this opens the commit history view, which shows a list of all commits in reverse chronological order, with the most recent commits appearing first. Each commit entry shows the commit message, the author, the date and time, and a link to view the specific changes made in that commit.</p>
-            <p>Clicking on a commit message or the commit identifier opens a detailed view showing exactly what files were changed and what specific modifications were made. This view uses a diff format that highlights additions in green and deletions in red, making it easy to see what changed. For each file, you can see the exact lines that were added, removed, or modified. This detailed view is invaluable for understanding how your project evolved and for reviewing changes before they're incorporated into your main project.</p>
-            <p>The commit history serves as documentation of your project's development. It shows the progression of features, fixes, and improvements over time. This history is permanent and can't be deleted easily, which means you can always return to understand what changed and when. For learning purposes, viewing your commit history helps you see your progress and understand how small changes accumulate into a complete project.</p>
+            
+            <p>Understanding how to view <strong>commit history</strong> helps you track your project's development and understand what changed over time. Each repository includes a <strong>complete history</strong> of all commits, showing who made changes, when they were made, and what specifically changed.</p>
+
+            <h3>Accessing Commit History</h3>
+            <p>To view commit history, navigate to your repository and look for a <strong>link or button showing the number of commits</strong>, typically near the top of the repository page.</p>
+            
+            <p>Clicking this opens the <strong>commit history view</strong>, which shows:</p>
+            <ul>
+                <li>A <strong>list of all commits</strong> in reverse chronological order (most recent first)</li>
+                <li><strong>Each commit entry</strong> showing:
+                    <ul>
+                        <li>The <strong>commit message</strong></li>
+                        <li>The <strong>author</strong></li>
+                        <li>The <strong>date and time</strong></li>
+                        <li>A <strong>link to view</strong> the specific changes made</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>Understanding Commit Details</h3>
+            <p>Clicking on a commit message or the commit identifier opens a <strong>detailed view</strong> showing exactly:</p>
+            <ul>
+                <li><strong>What files were changed</strong></li>
+                <li><strong>What specific modifications</strong> were made</li>
+            </ul>
+            
+            <p>This view uses a <strong>diff format</strong> that highlights:</p>
+            <ul>
+                <li><strong>Additions in green</strong> - New lines added</li>
+                <li><strong>Deletions in red</strong> - Lines removed</li>
+            </ul>
+            
+            <p>For each file, you can see the <strong>exact lines</strong> that were added, removed, or modified. This detailed view is invaluable for:</p>
+            <ul>
+                <li><strong>Understanding</strong> how your project evolved</li>
+                <li><strong>Reviewing changes</strong> before they're incorporated into your main project</li>
+                <li><strong>Learning</strong> from your development process</li>
+            </ul>
+
+            <h3>Why Commit History Matters</h3>
+            <p>The commit history serves as <strong>documentation</strong> of your project's development. It shows the progression of:</p>
+            <ul>
+                <li><strong>Features</strong> - New functionality added</li>
+                <li><strong>Fixes</strong> - Bugs resolved</li>
+                <li><strong>Improvements</strong> - Enhancements made</li>
+            </ul>
+            
+            <p>This history is <strong>permanent and can't be deleted easily</strong>, which means you can always return to understand what changed and when.</p>
+            
+            <p>For learning purposes, viewing your commit history helps you:</p>
+            <ul>
+                <li><strong>See your progress</strong> over time</li>
+                <li><strong>Understand how small changes</strong> accumulate into a complete project</li>
+                <li><strong>Learn from mistakes</strong> and successful approaches</li>
+            </ul>
+            
+            <p>Learn more about viewing commit history in GitHub's <a href="https://docs.github.com/en/repositories/working-with-files/using-files/viewing-a-file#viewing-file-history" target="_blank">documentation</a>.</p>
         </div>
         <div class="concept-section">
             <h2>Best Practices for Commits</h2>
-            <p>Following best practices when making commits creates a clear, useful project history that helps you understand your work and makes collaboration easier if you work with others in the future.</p>
-            <p>Make commits regularly as you complete logical units of work. Rather than making one massive commit at the end of a work session, commit smaller changes as you complete features or fix issues. This creates a more detailed history and makes it easier to identify and revert specific changes if needed. For example, if you update the header styles and then add a new section, make two separate commits - one for the header updates and one for the new section. This granular history is more useful than a single commit containing multiple unrelated changes.</p>
-            <p>Write clear, descriptive commit messages that explain what changed and why. Avoid vague messages like "updates" or "fixes" that don't provide useful information. Instead, write messages like "Update navigation to use flexbox layout" or "Fix color contrast issue in footer". If a change requires explanation, use the extended description field to provide context. Good commit messages make your project history readable and professional.</p>
-            <p>Keep commits focused on single concerns when possible. If you're updating multiple unrelated files, consider whether they should be separate commits. For example, fixing a typo in one file and updating styles in another file are two different concerns that could be two separate commits. This practice makes it easier to revert specific changes without affecting unrelated modifications.</p>
-            <p>Review your changes before committing. GitHub shows you a preview of what will change before you commit. Take a moment to verify that your changes are correct and that you're not accidentally committing unintended modifications. This review step helps catch mistakes before they become part of your project history.</p>
+            
+            <p>Following <strong>best practices</strong> when making commits creates a clear, useful project history that helps you understand your work and makes collaboration easier if you work with others in the future.</p>
+
+            <h3>1. Make Commits Regularly</h3>
+            <p>Make commits regularly as you complete <strong>logical units of work</strong>. Rather than making one massive commit at the end of a work session, commit smaller changes as you complete features or fix issues.</p>
+            
+            <p><strong>This creates:</strong></p>
+            <ul>
+                <li>A <strong>more detailed history</strong></li>
+                <li><strong>Easier identification</strong> and reversion of specific changes</li>
+                <li><strong>Better tracking</strong> of your progress</li>
+            </ul>
+            
+            <p><strong>Example:</strong> If you update the header styles and then add a new section, make <strong>two separate commits</strong>:</p>
+            <ul>
+                <li>One for the <strong>header updates</strong></li>
+                <li>One for the <strong>new section</strong></li>
+            </ul>
+            
+            <p>This granular history is more useful than a single commit containing multiple unrelated changes.</p>
+
+            <h3>2. Write Clear Commit Messages</h3>
+            <p>Write <strong>clear, descriptive commit messages</strong> that explain what changed and why.</p>
+            
+            <p><strong>Avoid vague messages:</strong></p>
+            <ul>
+                <li>✗ <code>"updates"</code></li>
+                <li>✗ <code>"fixes"</code></li>
+                <li>✗ <code>"changes"</code></li>
+            </ul>
+            
+            <p><strong>Write descriptive messages:</strong></p>
+            <ul>
+                <li>✓ <code>"Update navigation to use flexbox layout"</code></li>
+                <li>✓ <code>"Fix color contrast issue in footer"</code></li>
+                <li>✓ <code>"Add responsive styles for mobile devices"</code></li>
+            </ul>
+            
+            <p>If a change requires explanation, use the <strong>extended description field</strong> to provide context. Good commit messages make your project history <em>readable and professional</em>.</p>
+            
+            <p>Learn more about writing good commit messages in GitHub's <a href="https://github.com/erlang/otp/wiki/writing-good-commit-messages" target="_blank">commit message guidelines</a>.</p>
+
+            <h3>3. Keep Commits Focused</h3>
+            <p>Keep commits focused on <strong>single concerns</strong> when possible. If you're updating multiple unrelated files, consider whether they should be separate commits.</p>
+            
+            <p><strong>Example:</strong></p>
+            <ul>
+                <li>Fixing a typo in one file</li>
+                <li>Updating styles in another file</li>
+            </ul>
+            
+            <p>These are <strong>two different concerns</strong> that could be two separate commits. This practice makes it easier to:</p>
+            <ul>
+                <li><strong>Revert specific changes</strong> without affecting unrelated modifications</li>
+                <li><strong>Understand</strong> what each commit accomplished</li>
+                <li><strong>Review changes</strong> more easily</li>
+            </ul>
+
+            <h3>4. Review Before Committing</h3>
+            <p><strong>Review your changes</strong> before committing. GitHub shows you a preview of what will change before you commit.</p>
+            
+            <p>Take a moment to verify that:</p>
+            <ul>
+                <li>Your changes are <strong>correct</strong></li>
+                <li>You're not accidentally committing <strong>unintended modifications</strong></li>
+                <li>All files you want to change are included</li>
+            </ul>
+            
+            <p>This review step helps <strong>catch mistakes</strong> before they become part of your project history.</p>
         </div>
         <div class="concept-section">
             <h2>Next Steps</h2>

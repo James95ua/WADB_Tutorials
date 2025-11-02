@@ -36,6 +36,7 @@
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/navigation.css">
     <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/search.css">
     <!-- 
         Links to external CSS files that style this page.
         base.css contains foundational styles shared across all pages.
@@ -96,6 +97,9 @@
                     <li><a href="#templates">Templates</a></li>
                     <li><a href="#github">GitHub</a></li>
                     <li><a href="design-resources.html">Design Resources</a></li>
+                    <li><a href="troubleshooting.html">Troubleshooting</a></li>
+                    <li><a href="reference.html">Quick Reference</a></li>
+                    <li><a href="project-ideas.html">Project Ideas</a></li>
                     <!-- 
                         This link goes to a separate page (not a section).
                         No # means it's a file path, not an anchor link.
@@ -146,6 +150,14 @@
             <div class="container">
                 <h2>Interactive Lessons</h2>
                 <p class="section-intro">Follow along step-by-step. Each lesson builds on the previous one.</p>
+                
+                <div class="overall-progress">
+                    <div class="progress-bar-container">
+                        <div class="progress-bar-fill" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <div class="progress-text">0 of 8 lessons completed</div>
+                </div>
+                
                 <div class="lessons-grid">
                     <a href="lessons/01-html-basics.html" class="lesson-card">
                         <div class="lesson-number">01</div>
@@ -235,6 +247,39 @@
                 <div style="max-width: 600px; margin: 2rem auto; text-align: center;">
                     <p style="margin-bottom: 2rem;">Understanding good design principles helps you create websites that are not only functional but also professional, readable, and accessible to everyone.</p>
                     <a href="design-resources.html" class="btn btn-primary">Explore Design Resources</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="troubleshooting" class="troubleshooting-section" style="background-color: #fef3c7; padding: 4rem 0;">
+            <div class="container">
+                <h2>Having Trouble?</h2>
+                <p class="section-intro">Common problems and step-by-step solutions</p>
+                <div style="max-width: 600px; margin: 2rem auto; text-align: center;">
+                    <p style="margin-bottom: 2rem;">Encountering issues while learning is completely normal. Our troubleshooting guide helps you solve common problems like CSS not working, images not loading, or files not displaying correctly. Each solution includes explanations of why problems occur, so you learn to diagnose issues yourself.</p>
+                    <a href="troubleshooting.html" class="btn btn-primary">View Troubleshooting Guide</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="reference" class="reference-section" style="background-color: #e0f2fe; padding: 4rem 0;">
+            <div class="container">
+                <h2>Quick Reference</h2>
+                <p class="section-intro">Quick lookup for HTML tags and CSS properties</p>
+                <div style="max-width: 600px; margin: 2rem auto; text-align: center;">
+                    <p style="margin-bottom: 2rem;">Need to remember the syntax for an HTML tag or CSS property? Our quick reference guide provides easy-to-scan cards with examples for all the common tags and properties you'll use while building websites. Perfect for bookmarking and referencing while you code.</p>
+                    <a href="reference.html" class="btn btn-primary">Open Quick Reference</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="projects-section" style="background-color: #f0fdf4; padding: 4rem 0;">
+            <div class="container">
+                <h2>Project Ideas</h2>
+                <p class="section-intro">Practice your skills with real projects</p>
+                <div style="max-width: 600px; margin: 2rem auto; text-align: center;">
+                    <p style="margin-bottom: 2rem;">Ready to build something? Our project ideas guide provides beginner-friendly projects that progress from simple to complex. Each project includes a checklist, required skills, and links to relevant lessons to help you succeed.</p>
+                    <a href="project-ideas.html" class="btn btn-primary">View Project Ideas</a>
                 </div>
             </div>
         </section>
@@ -331,6 +376,13 @@
                             <p>Work with others on shared projects</p>
                         </div>
                     </div>
+                    <div class="guide-item">
+                        <span class="guide-number">07</span>
+                        <div class="guide-content">
+                            <h3><a href="github-guides/07-browser-devtools.html">Using Browser Developer Tools</a></h3>
+                            <p>Inspect elements, debug code, and test changes</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -343,6 +395,8 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="js/progress-tracker.js"></script>
+    <script src="js/search.js"></script>
 </body>
 </html>
 

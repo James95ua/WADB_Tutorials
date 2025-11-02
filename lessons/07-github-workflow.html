@@ -15,7 +15,13 @@
         components.css: shared components like learning-outcomes and code-example
         lessons.css: lesson page-specific styles
     -->
+    <!-- Prism.js for syntax highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
     <script src="../script.js"></script>
+    <script src="../js/copy-code.js"></script>
+    <script src="../js/progress-tracker.js"></script>
 </head>
 <body>
     <!-- 
@@ -39,6 +45,7 @@
                     <li><a href="../index.html#templates">Templates</a></li>
                     <li><a href="../index.html#github">GitHub</a></li>
                     <li><a href="../design-resources.html">Design Resources</a></li>
+                    <li><a href="../troubleshooting.html">Troubleshooting</a></li>
                 </ul>
             </div>
         </nav>
@@ -62,15 +69,109 @@
 
         <div class="concept-section">
             <h2>Understanding Commits and Commit Messages</h2>
-            <p>A commit is a snapshot of your project at a specific point in time. When you make changes to files in your repository and save those changes, you create a commit that permanently records what changed, when it changed, and includes a message describing why the change was made. Commits are the building blocks of version control, allowing you to track your project's evolution and return to previous versions if needed.</p>
+            
+            <p>A <strong>commit</strong> is a snapshot of your project at a specific point in time. When you make changes to files in your repository and save those changes, you create a commit that permanently records:</p>
+            
+            <ul>
+                <li><strong>What changed</strong> (which files were modified)</li>
+                <li><strong>When it changed</strong> (timestamp)</li>
+                <li><strong>Why it changed</strong> (your commit message)</li>
+            </ul>
+            
+            <p>Commits are the <strong>building blocks of version control</strong>, allowing you to track your project's evolution and return to previous versions if needed.</p>
 
-            <p>Commits work like save points in a video game. Each time you make meaningful progress or complete a task, you create a commit that saves the current state of your files. If you make a mistake later or want to see how your project looked at an earlier point, you can view or return to any previous commit. This differs from regular file saving because commits include a description of what changed and create a permanent historical record that can't be accidentally overwritten.</p>
+            <h3>Commits as Save Points</h3>
+            <p>Commits work like <strong>save points in a video game</strong>. Each time you make meaningful progress or complete a task, you create a commit that saves the current state of your files.</p>
+            
+            <p>If you make a mistake later or want to see how your project looked at an earlier point, you can:</p>
+            
+            <ul>
+                <li><strong>View</strong> any previous commit</li>
+                <li><strong>Return</strong> to any previous commit</li>
+                <li><strong>Compare</strong> different versions</li>
+            </ul>
+            
+            <p>This differs from regular file saving because commits include a <strong>description of what changed</strong> and create a <em>permanent historical record</em> that can't be accidentally overwritten.</p>
 
-            <p>Commit messages are descriptions you write to explain what changed and why. Good commit messages help you and others understand the project's history at a glance. When you view a repository's commit history, you see a list of messages that tell the story of how the project developed. Clear messages make it easy to find specific changes, understand the reasoning behind modifications, and see the progression of features.</p>
+            <h3>The Importance of Commit Messages</h3>
+            <p><strong>Commit messages</strong> are descriptions you write to explain what changed and why. Good commit messages help you and others understand the project's history at a glance.</p>
+            
+            <p>When you view a repository's commit history, you see a list of messages that tell the story of how the project developed. Clear messages make it easy to:</p>
+            
+            <ul>
+                <li><strong>Find specific changes</strong></li>
+                <li><strong>Understand the reasoning</strong> behind modifications</li>
+                <li><strong>See the progression</strong> of features</li>
+            </ul>
+            
+            <p>Learn more about writing good commit messages in GitHub's <a href="https://github.com/erlang/otp/wiki/writing-good-commit-messages" target="_blank">commit message guidelines</a>.</p>
 
-            <p>Effective commit messages follow a few guidelines. They should be written in the present tense, describing what the commit does rather than what you did. For example, "Add responsive navigation styles" is better than "Added responsive navigation styles" or "I added responsive navigation styles". The message should be concise but descriptive - ideally one line that summarizes the change, with optional additional lines providing more detail. For simple changes like fixing typos or updating styles, a short message is sufficient. For larger changes or new features, a longer message explaining the context and reasoning is helpful.</p>
+            <h3>Writing Effective Commit Messages</h3>
+            <p>Effective commit messages follow a few guidelines:</p>
+            
+            <p><strong>1. Use Present Tense</strong></p>
+            <p>Write in the <strong>present tense</strong>, describing what the commit <em>does</em> rather than what you did:</p>
+            
+            <ul>
+                <li>✓ <code>"Add responsive navigation styles"</code></li>
+                <li>✗ <code>"Added responsive navigation styles"</code></li>
+                <li>✗ <code>"I added responsive navigation styles"</code></li>
+            </ul>
+            
+            <p><strong>2. Be Concise but Descriptive</strong></p>
+            <p>The message should be:</p>
+            
+            <ul>
+                <li><strong>Ideally one line</strong> that summarizes the change</li>
+                <li><strong>Optional additional lines</strong> providing more detail</li>
+                <li><strong>Short</strong> for simple changes (fixing typos, updating styles)</li>
+                <li><strong>Longer</strong> for larger changes or new features (explain context and reasoning)</li>
+            </ul>
+            
+            <div class="code-example">
+                <code># Good short commit message
+Fix typo in navigation link
 
-            <p>Common commit message patterns include starting with action words like "Add", "Fix", "Update", "Remove", or "Refactor". "Add" indicates new features or files, "Fix" indicates bug fixes, "Update" indicates modifications to existing features, "Remove" indicates deletions, and "Refactor" indicates code improvements that don't change functionality. Following these patterns makes commit histories more readable and professional.</p>
+# Good longer commit message
+Add responsive navigation styles
+
+- Implement mobile hamburger menu
+- Add flexbox layout for desktop navigation
+- Ensure accessibility with proper ARIA labels</code>
+            </div>
+
+            <h3>Common Commit Message Patterns</h3>
+            <p>Common commit message patterns include starting with <strong>action words</strong>:</p>
+            
+            <ul>
+                <li><strong>"Add"</strong> - New features or files
+                    <ul>
+                        <li>Example: <code>"Add contact form to homepage"</code></li>
+                    </ul>
+                </li>
+                <li><strong>"Fix"</strong> - Bug fixes
+                    <ul>
+                        <li>Example: <code>"Fix navigation links on mobile"</code></li>
+                    </ul>
+                </li>
+                <li><strong>"Update"</strong> - Modifications to existing features
+                    <ul>
+                        <li>Example: <code>"Update color scheme to blue palette"</code></li>
+                    </ul>
+                </li>
+                <li><strong>"Remove"</strong> - Deletions
+                    <ul>
+                        <li>Example: <code>"Remove unused CSS styles"</code></li>
+                    </ul>
+                </li>
+                <li><strong>"Refactor"</strong> - Code improvements that don't change functionality
+                    <ul>
+                        <li>Example: <code>"Refactor navigation CSS for better organization"</code></li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <p>Following these patterns makes commit histories <strong>more readable and professional</strong>. See <a href="https://www.conventionalcommits.org/" target="_blank">Conventional Commits</a> for more detailed guidelines.</p>
         </div>
 
         <div class="concept-section">
@@ -90,17 +191,86 @@
 
         <div class="concept-section">
             <h2>Understanding Branches</h2>
-            <p>Branches in Git and GitHub allow you to work on different versions of your project simultaneously without affecting the main version. Think of branches like alternate timelines - you can experiment with new features, try different approaches, or work on multiple tasks in parallel, all while keeping your main branch stable and functional.</p>
+            
+            <p><strong>Branches</strong> in Git and GitHub allow you to work on different versions of your project simultaneously without affecting the main version. Think of branches like <em>alternate timelines</em> - you can experiment with new features, try different approaches, or work on multiple tasks in parallel, all while keeping your main branch stable and functional.</p>
 
-            <p>The main branch, typically called "main" or "master," represents the primary, stable version of your project. This is the version that's ready to share, deploy, or use. When you first create a repository, it starts with just the main branch. As your project grows, you might want to experiment with new features or redesigns without risking your stable main version. Branches let you create copies of your project where you can make changes safely.</p>
+            <h3>The Main Branch</h3>
+            <p>The <strong>main branch</strong> (typically called <code>"main"</code> or <code>"master"</code>), represents the <strong>primary, stable version</strong> of your project. This is the version that's:</p>
+            
+            <ul>
+                <li><strong>Ready to share</strong></li>
+                <li><strong>Ready to deploy</strong></li>
+                <li><strong>Ready to use</strong></li>
+            </ul>
+            
+            <p>When you first create a repository, it starts with just the main branch. As your project grows, you might want to experiment with new features or redesigns without risking your stable main version. Branches let you create <strong>copies of your project</strong> where you can make changes safely.</p>
+            
+            <p>Learn more about branches in GitHub's <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches" target="_blank">branches documentation</a>.</p>
 
-            <p>When you create a new branch, you're creating an independent line of development that starts from the current state of your main branch. Changes you make on this new branch don't affect the main branch until you decide to merge them together. This means you can try out ideas, experiment with designs, or work on features without worrying about breaking your working website. If an experiment doesn't work out, you can simply delete the branch without affecting your main project.</p>
+            <h3>How Branches Work</h3>
+            <p>When you create a new branch, you're creating an <strong>independent line of development</strong> that starts from the current state of your main branch. Changes you make on this new branch <em>don't affect</em> the main branch until you decide to merge them together.</p>
+            
+            <p>This means you can:</p>
+            
+            <ul>
+                <li><strong>Try out ideas</strong> without risk</li>
+                <li><strong>Experiment with designs</strong> safely</li>
+                <li><strong>Work on features</strong> without breaking your working website</li>
+                <li><strong>Delete the branch</strong> if an experiment doesn't work out</li>
+            </ul>
+            
+            <p>Your main project remains <strong>unchanged and stable</strong> throughout this process.</p>
 
-            <p>Branches are especially useful when working on larger changes or multiple features simultaneously. For example, you might create a branch called "redesign-header" to work on updating your website's header, and another branch called "add-contact-form" to work on a new contact page. Both branches start from the same point but develop independently. When each feature is complete and tested, you can merge the branch back into main, incorporating the changes into your primary project.</p>
+            <h3>Using Branches for Multiple Features</h3>
+            <p>Branches are especially useful when working on larger changes or multiple features simultaneously.</p>
+            
+            <p><strong>Example workflow:</strong></p>
+            
+            <ul>
+                <li>Create a branch called <code>"redesign-header"</code> to work on updating your website's header</li>
+                <li>Create another branch called <code>"add-contact-form"</code> to work on a new contact page</li>
+                <li>Both branches start from the same point but develop <strong>independently</strong></li>
+                <li>When each feature is complete and tested, merge the branch back into main</li>
+            </ul>
+            
+            <p>This allows you to work on <strong>multiple features</strong> at once without conflicts or confusion.</p>
 
-            <p>Naming branches clearly helps you remember what each branch is for. Good branch names are descriptive and use hyphens instead of spaces, such as "fix-navigation-bug" or "add-responsive-images". Some teams use naming conventions like starting with feature/, fix/, or experiment/ to categorize branches, but for personal projects, clear descriptive names are sufficient.</p>
+            <h3>Naming Branches</h3>
+            <p>Naming branches clearly helps you remember what each branch is for. <strong>Good branch names</strong> are:</p>
+            
+            <ul>
+                <li><strong>Descriptive</strong> - Clear about the branch's purpose</li>
+                <li><strong>Use hyphens</strong> instead of spaces</li>
+                <li><strong>Lowercase</strong> (recommended)</li>
+            </ul>
+            
+            <p><strong>Good examples:</strong></p>
+            <ul>
+                <li><code>fix-navigation-bug</code> ✓</li>
+                <li><code>add-responsive-images</code> ✓</li>
+                <li><code>update-color-scheme</code> ✓</li>
+            </ul>
+            
+            <p><strong>Some teams use naming conventions</strong> like starting with prefixes:</p>
+            <ul>
+                <li><code>feature/add-contact-form</code></li>
+                <li><code>fix/navigation-mobile</code></li>
+                <li><code>experiment/new-layout</code></li>
+            </ul>
+            
+            <p>For personal projects, <strong>clear descriptive names</strong> are sufficient. Choose a style that works for you and be consistent!</p>
 
-            <p>Understanding branches becomes increasingly valuable as projects grow. Even for simple websites, branches provide a safe way to experiment with design changes or try new features. The ability to work on changes independently, test them thoroughly, and then merge them only when ready creates a professional workflow that scales from personal projects to large team collaborations.</p>
+            <h3>Why Branches Matter</h3>
+            <p>Understanding branches becomes increasingly valuable as projects grow. Even for simple websites, branches provide:</p>
+            
+            <ul>
+                <li>A <strong>safe way to experiment</strong> with design changes</li>
+                <li>A way to <strong>try new features</strong> without risk</li>
+                <li>The ability to work on changes <strong>independently</strong></li>
+                <li>The ability to <strong>test thoroughly</strong> before merging</li>
+            </ul>
+            
+            <p>The ability to work on changes independently, test them thoroughly, and then merge them only when ready creates a <strong>professional workflow</strong> that scales from personal projects to large team collaborations.</p>
         </div>
 
         <div class="concept-section">
@@ -118,15 +288,76 @@
 
         <div class="concept-section">
             <h2>Understanding Pull Requests</h2>
-            <p>Pull requests, often abbreviated as PRs, are proposals to merge changes from one branch into another. While the name might suggest requesting someone else to pull your changes, pull requests are valuable even when working alone because they provide a structured way to review, discuss, and merge changes before they become part of your main branch.</p>
+            
+            <p><strong>Pull requests</strong>, often abbreviated as <strong>PRs</strong>, are proposals to merge changes from one branch into another. While the name might suggest requesting someone else to pull your changes, pull requests are <em>valuable even when working alone</em> because they provide a structured way to review, discuss, and merge changes before they become part of your main branch.</p>
 
-            <p>When you create a pull request, you're proposing that changes from a branch should be merged into another branch, typically from a feature branch into main. The pull request shows exactly what would change - which files would be modified, added, or deleted, and what the specific changes are. This preview allows you to review changes before they're merged, ensuring everything looks correct and works as intended.</p>
+            <h3>What Pull Requests Do</h3>
+            <p>When you create a pull request, you're proposing that changes from a branch should be merged into another branch, typically from a <strong>feature branch into main</strong>.</p>
+            
+            <p>The pull request shows exactly what would change:</p>
+            
+            <ul>
+                <li><strong>Which files</strong> would be modified, added, or deleted</li>
+                <li><strong>What the specific changes</strong> are (line by line)</li>
+                <li>A <strong>preview</strong> of how the merge would work</li>
+            </ul>
+            
+            <p>This preview allows you to <strong>review changes</strong> before they're merged, ensuring everything looks correct and works as intended.</p>
+            
+            <p>Learn more in GitHub's <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests" target="_blank">pull requests documentation</a>.</p>
 
-            <p>Pull requests include several important components. The title should clearly describe what the pull request does, similar to a good commit message. The description field allows you to explain the changes in detail, why you made them, and any relevant context. GitHub automatically shows a diff - a side-by-side comparison - of all files that would change, highlighting exactly what's being added, removed, or modified. This visual representation makes it easy to review changes before merging.</p>
+            <h3>Components of a Pull Request</h3>
+            <p>Pull requests include several important components:</p>
+            
+            <ul>
+                <li><strong>Title</strong> - Should clearly describe what the pull request does, similar to a good commit message
+                    <ul>
+                        <li>Example: <code>"Update color scheme to green palette"</code></li>
+                    </ul>
+                </li>
+                <li><strong>Description</strong> - Allows you to explain the changes in detail, why you made them, and any relevant context</li>
+                <li><strong>Diff</strong> - GitHub automatically shows a side-by-side comparison of all files that would change, highlighting exactly what's being added, removed, or modified</li>
+            </ul>
+            
+            <p>This visual representation makes it easy to <strong>review changes</strong> before merging.</p>
 
-            <p>When working alone, pull requests serve as a review checkpoint. Before merging changes into main, you can review the pull request to ensure everything is correct, test any changes if possible, and write notes about what was changed and why. This practice creates good habits for collaboration and helps catch mistakes before they become part of your main branch. The pull request also creates a record of why changes were made, which is valuable when looking back at project history.</p>
+            <h3>Using Pull Requests When Working Alone</h3>
+            <p>When working alone, pull requests serve as a <strong>review checkpoint</strong>. Before merging changes into main, you can:</p>
+            
+            <ul>
+                <li><strong>Review the pull request</strong> to ensure everything is correct</li>
+                <li><strong>Test any changes</strong> if possible</li>
+                <li><strong>Write notes</strong> about what was changed and why</li>
+            </ul>
+            
+            <p>This practice:</p>
+            
+            <ul>
+                <li>Creates <strong>good habits</strong> for collaboration</li>
+                <li>Helps <strong>catch mistakes</strong> before they become part of your main branch</li>
+                <li>Creates a <strong>record of why changes were made</strong>, which is valuable when looking back at project history</li>
+            </ul>
 
-            <p>In collaborative projects, pull requests become essential communication tools. Team members can review proposed changes, leave comments asking questions or suggesting improvements, and discuss the implementation before merging. The pull request author can make additional commits to address feedback, and all of this discussion is preserved in the project history. Even for solo projects, using pull requests prepares you for professional workflows and creates better organized project histories.</p>
+            <h3>Pull Requests in Collaboration</h3>
+            <p>In collaborative projects, pull requests become <strong>essential communication tools</strong>. Team members can:</p>
+            
+            <ul>
+                <li><strong>Review</strong> proposed changes</li>
+                <li><strong>Leave comments</strong> asking questions or suggesting improvements</li>
+                <li><strong>Discuss</strong> the implementation before merging</li>
+            </ul>
+            
+            <p>The pull request author can make additional commits to address feedback, and all of this discussion is <strong>preserved in the project history</strong>.</p>
+            
+            <p>Even for solo projects, using pull requests:</p>
+            
+            <ul>
+                <li><strong>Prepares you</strong> for professional workflows</li>
+                <li>Creates <strong>better organized</strong> project histories</li>
+                <li>Helps you <strong>think through changes</strong> more carefully</li>
+            </ul>
+            
+            <p>For guidance on creating effective pull requests, see GitHub's <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request" target="_blank">creating pull requests guide</a>.</p>
         </div>
 
         <div class="worked-example">

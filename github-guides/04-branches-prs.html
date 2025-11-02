@@ -45,11 +45,73 @@
         </div>
         <div class="concept-section">
             <h2>Understanding Pull Requests</h2>
-            <p>Pull requests, often abbreviated as PRs, are proposals to merge changes from one branch into another. While the name might suggest requesting someone else to pull your changes, pull requests are valuable even when working alone because they provide a structured way to review, discuss, and merge changes before they become part of your main branch.</p>
-            <p>When you create a pull request, you're proposing that changes from a branch should be merged into another branch, typically from a feature branch into main. The pull request shows exactly what would change - which files would be modified, added, or deleted, and what the specific changes are. This preview allows you to review changes before they're merged, ensuring everything looks correct and works as intended.</p>
-            <p>Pull requests include several important components. The title should clearly describe what the pull request does, similar to a good commit message. The description field allows you to explain the changes in detail, why you made them, and any relevant context. GitHub automatically shows a diff - a side-by-side comparison - of all files that would change, highlighting exactly what's being added, removed, or modified. This visual representation makes it easy to review changes before merging.</p>
-            <p>When working alone, pull requests serve as a review checkpoint. Before merging changes into main, you can review the pull request to ensure everything is correct, test any changes if possible, and write notes about what was changed and why. This practice creates good habits for collaboration and helps catch mistakes before they become part of your main branch. The pull request also creates a record of why changes were made, which is valuable when looking back at project history.</p>
-            <p>In collaborative projects, pull requests become essential communication tools. Team members can review proposed changes, leave comments asking questions or suggesting improvements, and discuss the implementation before merging. The pull request author can make additional commits to address feedback, and all of this discussion is preserved in the project history. Even for solo projects, using pull requests prepares you for professional workflows and creates better organized project histories.</p>
+            
+            <p><strong>Pull requests</strong>, often abbreviated as <strong>PRs</strong>, are proposals to merge changes from one branch into another. While the name might suggest requesting someone else to pull your changes, pull requests are <em>valuable even when working alone</em> because they provide a structured way to review, discuss, and merge changes before they become part of your main branch.</p>
+
+            <h3>What Pull Requests Do</h3>
+            <p>When you create a pull request, you're proposing that changes from a branch should be merged into another branch, typically from a <strong>feature branch into main</strong>.</p>
+            
+            <p>The pull request shows exactly what would change:</p>
+            <ul>
+                <li><strong>Which files</strong> would be modified, added, or deleted</li>
+                <li><strong>What the specific changes</strong> are (line by line)</li>
+                <li>A <strong>preview</strong> of how the merge would work</li>
+            </ul>
+            
+            <p>This preview allows you to <strong>review changes</strong> before they're merged, ensuring everything looks correct and works as intended.</p>
+            
+            <p>Learn more in GitHub's <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests" target="_blank">pull requests documentation</a>.</p>
+
+            <h3>Components of a Pull Request</h3>
+            <p>Pull requests include several important components:</p>
+            
+            <ul>
+                <li><strong>Title</strong> - Should clearly describe what the pull request does, similar to a good commit message
+                    <ul>
+                        <li>Example: <code>"Update color scheme to green palette"</code></li>
+                    </ul>
+                </li>
+                <li><strong>Description</strong> - Allows you to explain the changes in detail, why you made them, and any relevant context</li>
+                <li><strong>Diff</strong> - GitHub automatically shows a side-by-side comparison of all files that would change, highlighting exactly what's being added, removed, or modified</li>
+            </ul>
+            
+            <p>This visual representation makes it easy to <strong>review changes</strong> before merging.</p>
+
+            <h3>Using Pull Requests When Working Alone</h3>
+            <p>When working alone, pull requests serve as a <strong>review checkpoint</strong>. Before merging changes into main, you can:</p>
+            
+            <ul>
+                <li><strong>Review the pull request</strong> to ensure everything is correct</li>
+                <li><strong>Test any changes</strong> if possible</li>
+                <li><strong>Write notes</strong> about what was changed and why</li>
+            </ul>
+            
+            <p>This practice:</p>
+            <ul>
+                <li>Creates <strong>good habits</strong> for collaboration</li>
+                <li>Helps <strong>catch mistakes</strong> before they become part of your main branch</li>
+                <li>Creates a <strong>record of why changes were made</strong>, which is valuable when looking back at project history</li>
+            </ul>
+
+            <h3>Pull Requests in Collaboration</h3>
+            <p>In collaborative projects, pull requests become <strong>essential communication tools</strong>. Team members can:</p>
+            
+            <ul>
+                <li><strong>Review</strong> proposed changes</li>
+                <li><strong>Leave comments</strong> asking questions or suggesting improvements</li>
+                <li><strong>Discuss</strong> the implementation before merging</li>
+            </ul>
+            
+            <p>The pull request author can make additional commits to address feedback, and all of this discussion is <strong>preserved in the project history</strong>.</p>
+            
+            <p>Even for solo projects, using pull requests:</p>
+            <ul>
+                <li><strong>Prepares you</strong> for professional workflows</li>
+                <li>Creates <strong>better organized</strong> project histories</li>
+                <li>Helps you <strong>think through changes</strong> more carefully</li>
+            </ul>
+            
+            <p>For guidance on creating effective pull requests, see GitHub's <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request" target="_blank">creating pull requests guide</a>.</p>
         </div>
         <div class="concept-section">
             <h2>Creating and Merging Pull Requests</h2>
@@ -62,11 +124,59 @@
         </div>
         <div class="concept-section">
             <h2>Best Practices</h2>
-            <p>Following best practices when using branches and pull requests creates better organized projects and prepares you for professional workflows.</p>
-            <p>Keep branches focused on single features or concerns. If you find yourself working on multiple unrelated changes on one branch, consider splitting them into separate branches. This makes pull requests easier to review and understand. For example, if you're updating styles and adding new content, those could be two separate branches and pull requests, making it clear what each change accomplishes.</p>
-            <p>Write descriptive branch names that clearly indicate what work happens on that branch. Names like "fix-navigation-bug" or "add-contact-form" are immediately understandable, while names like "changes" or "branch1" provide no useful information. Good naming helps you navigate your branches and understand your project's structure.</p>
-            <p>Create pull requests even for your own work. The review process helps catch mistakes and creates a clear record of what changed. Write detailed descriptions explaining not just what changed, but why you made those changes. This documentation becomes valuable when looking back at your project history.</p>
-            <p>Review your own pull requests before merging. Take time to look at the diff, verify changes are correct, and ensure everything works as intended. This self-review process helps you develop attention to detail and catch issues before they become part of your main branch.</p>
+            
+            <p>Following <strong>best practices</strong> when using branches and pull requests creates better organized projects and prepares you for professional workflows.</p>
+
+            <h3>1. Keep Branches Focused</h3>
+            <p>Keep branches focused on <strong>single features or concerns</strong>. If you find yourself working on multiple unrelated changes on one branch, consider splitting them into separate branches.</p>
+            
+            <p><strong>This makes pull requests easier to review and understand.</strong></p>
+            
+            <p><strong>Example:</strong> If you're updating styles and adding new content, those could be <strong>two separate branches and pull requests</strong>, making it clear what each change accomplishes.</p>
+
+            <h3>2. Write Descriptive Branch Names</h3>
+            <p>Write <strong>descriptive branch names</strong> that clearly indicate what work happens on that branch.</p>
+            
+            <p><strong>Good examples:</strong></p>
+            <ul>
+                <li><code>fix-navigation-bug</code> ✓</li>
+                <li><code>add-contact-form</code> ✓</li>
+                <li><code>update-color-scheme</code> ✓</li>
+            </ul>
+            
+            <p><strong>Avoid:</strong></p>
+            <ul>
+                <li><code>changes</code> ✗ (provides no useful information)</li>
+                <li><code>branch1</code> ✗ (not descriptive)</li>
+                <li><code>test</code> ✗ (too vague)</li>
+            </ul>
+            
+            <p>Good naming helps you <strong>navigate your branches</strong> and understand your project's structure.</p>
+
+            <h3>3. Create Pull Requests for All Work</h3>
+            <p>Create pull requests <strong>even for your own work</strong>. The review process helps:</p>
+            <ul>
+                <li><strong>Catch mistakes</strong> before they're merged</li>
+                <li>Create a <strong>clear record</strong> of what changed</li>
+                <li>Provide <strong>documentation</strong> of your development process</li>
+            </ul>
+            
+            <p>Write <strong>detailed descriptions</strong> explaining not just what changed, but <em>why</em> you made those changes. This documentation becomes valuable when looking back at your project history.</p>
+
+            <h3>4. Review Your Own Pull Requests</h3>
+            <p><strong>Review your own pull requests before merging</strong>. Take time to:</p>
+            <ul>
+                <li><strong>Look at the diff</strong> - See exactly what's changing</li>
+                <li><strong>Verify changes are correct</strong> - Make sure everything works as intended</li>
+                <li><strong>Ensure nothing unintended</strong> is included</li>
+            </ul>
+            
+            <p>This self-review process helps you:</p>
+            <ul>
+                <li><strong>Develop attention to detail</strong></li>
+                <li><strong>Catch issues</strong> before they become part of your main branch</li>
+                <li><strong>Build good habits</strong> for professional workflows</li>
+            </ul>
         </div>
         <div class="concept-section">
             <h2>Next Steps</h2>

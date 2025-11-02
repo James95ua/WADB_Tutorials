@@ -15,7 +15,13 @@
         components.css: shared components like learning-outcomes and code-example
         lessons.css: lesson page-specific styles
     -->
+    <!-- Prism.js for syntax highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
     <script src="../script.js"></script>
+    <script src="../js/copy-code.js"></script>
+    <script src="../js/progress-tracker.js"></script>
 </head>
 <body>
     <!-- 
@@ -39,6 +45,7 @@
                     <li><a href="../index.html#templates">Templates</a></li>
                     <li><a href="../index.html#github">GitHub</a></li>
                     <li><a href="../design-resources.html">Design Resources</a></li>
+                    <li><a href="../troubleshooting.html">Troubleshooting</a></li>
                 </ul>
             </div>
         </nav>
@@ -62,28 +69,142 @@
 
         <div class="concept-section">
             <h2>What is Responsive Design and Why It Matters</h2>
-            <p>Responsive design refers to creating websites that adapt their layout and appearance based on the screen size and capabilities of the device viewing them. A responsive website looks and functions well on a small mobile phone screen, a tablet, a laptop, and a large desktop monitor. Rather than creating separate versions of a website for different devices, responsive design uses flexible layouts, images, and CSS media queries to automatically adjust the presentation.</p>
+            
+            <p><strong>Responsive design</strong> refers to creating websites that <em>adapt their layout and appearance</em> based on the screen size and capabilities of the device viewing them. A responsive website looks and functions well on:</p>
+            
+            <ul>
+                <li>A <strong>small mobile phone</strong> screen</li>
+                <li>A <strong>tablet</strong></li>
+                <li>A <strong>laptop</strong></li>
+                <li>A <strong>large desktop monitor</strong></li>
+            </ul>
+            
+            <p>Rather than creating <strong>separate versions</strong> of a website for different devices, responsive design uses:</p>
+            
+            <ul>
+                <li><strong>Flexible layouts</strong> - Content adapts to container size</li>
+                <li><strong>Flexible images</strong> - Scale proportionally</li>
+                <li><strong>CSS media queries</strong> - Apply different styles at different screen sizes</li>
+            </ul>
 
-            <p>This matters because people access websites from an enormous variety of devices with vastly different screen sizes. A website designed only for desktop computers will be difficult or impossible to use on a phone, with text that's too small to read, navigation that's hard to tap, and layouts that don't fit the screen. Similarly, a design optimized only for phones might waste screen space on larger displays. Responsive design ensures your website provides a good experience regardless of how users access it.</p>
+            <h3>Why Responsive Design Matters</h3>
+            <p>This matters because people access websites from an <strong>enormous variety of devices</strong> with vastly different screen sizes.</p>
+            
+            <p><strong>The problem with desktop-only design:</strong></p>
+            <ul>
+                <li>Text that's <strong>too small to read</strong> on phones</li>
+                <li>Navigation that's <strong>hard to tap</strong></li>
+                <li>Layouts that <strong>don't fit the screen</strong></li>
+                <li>Content that requires <strong>horizontal scrolling</strong></li>
+            </ul>
+            
+            <p><strong>The problem with mobile-only design:</strong></p>
+            <ul>
+                <li><strong>Wastes screen space</strong> on larger displays</li>
+                <li>Content that's <strong>too narrow</strong> on desktops</li>
+                <li>Navigation that's <strong>too simple</strong> for larger screens</li>
+            </ul>
+            
+            <p><strong>Responsive design ensures</strong> your website provides a <em>good experience</em> regardless of how users access it.</p>
 
-            <p>The importance of responsive design has grown as mobile internet usage has increased. Many websites now receive more traffic from mobile devices than desktop computers. Search engines prioritize mobile-friendly websites in their rankings, meaning responsive design affects not just user experience but also how easily people can find your site. Additionally, creating one responsive website is more efficient than maintaining separate desktop and mobile versions.</p>
+            <h3>The Growing Importance of Mobile</h3>
+            <p>The importance of responsive design has grown as <strong>mobile internet usage has increased</strong>:</p>
+            
+            <ul>
+                <li>Many websites now receive <strong>more traffic from mobile devices</strong> than desktop computers</li>
+                <li><strong>Search engines prioritize</strong> mobile-friendly websites in their rankings</li>
+                <li>Responsive design affects not just <strong>user experience</strong> but also <strong>how easily people can find your site</strong></li>
+            </ul>
+            
+            <p>Additionally, creating <strong>one responsive website</strong> is more efficient than maintaining separate desktop and mobile versions. You write your code once, and it adapts to all devices.</p>
 
-            <p>Responsive design involves several techniques working together. Flexible layouts that use percentages or flexible units instead of fixed pixel widths allow content to adapt to container size. Flexible images that scale proportionally prevent images from breaking layouts on smaller screens. Media queries allow you to apply different CSS rules at different screen sizes, changing layout, font sizes, navigation patterns, or any other styling to optimize for each device type.</p>
+            <h3>How Responsive Design Works</h3>
+            <p>Responsive design involves several techniques working together:</p>
+            
+            <ul>
+                <li><strong>Flexible layouts</strong> - Use percentages or flexible units (like <code>rem</code> or <code>vw</code>) instead of fixed pixel widths. Content adapts to container size.</li>
+                <li><strong>Flexible images</strong> - Scale proportionally using <code>max-width: 100%</code> to prevent images from breaking layouts on smaller screens.</li>
+                <li><strong>Media queries</strong> - Allow you to apply different CSS rules at different screen sizes, changing:
+                    <ul>
+                        <li>Layout structure</li>
+                        <li>Font sizes</li>
+                        <li>Navigation patterns</li>
+                        <li>Any other styling</li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <p>These techniques work together to create a website that <strong>automatically optimizes</strong> for each device type.</p>
         </div>
 
         <div class="concept-section">
             <h2>The Viewport Meta Tag</h2>
-            <p>The viewport meta tag is essential for responsive design because it tells mobile browsers how to handle your page's dimensions and scaling. Without this tag, mobile browsers assume your page is designed for desktop screens and shrink it to fit, which typically makes content too small to read and forces users to zoom in to interact with anything.</p>
+            
+            <p>The <strong>viewport meta tag</strong> is <em>essential</em> for responsive design because it tells mobile browsers how to handle your page's dimensions and scaling.</p>
+            
+            <h3>The Problem Without the Viewport Tag</h3>
+            <p>Without this tag, mobile browsers assume your page is designed for <strong>desktop screens</strong> and shrink it to fit. This typically causes:</p>
+            
+            <ul>
+                <li>Content that's <strong>too small to read</strong></li>
+                <li>Users forced to <strong>zoom in</strong> to interact with anything</li>
+                <li>Layouts that don't work on mobile devices</li>
+                <li>A poor user experience</li>
+            </ul>
+            
+            <p><strong>Even well-designed responsive layouts won't work correctly</strong> on mobile devices without the viewport tag because browsers will still treat the page as a desktop site and scale it inappropriately.</p>
 
-            <p>The viewport meta tag goes in the head section of your HTML document. A standard responsive viewport tag looks like this: <code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code>. This tag has several parts that control how the browser renders your page.</p>
+            <h3>Adding the Viewport Meta Tag</h3>
+            <p>The viewport meta tag goes in the <code>&lt;head&gt;</code> section of your HTML document. A standard responsive viewport tag looks like this:</p>
+            
+            <div class="code-example">
+                <code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code>
+            </div>
+            
+            <p>This tag has several parts that control how the browser renders your page.</p>
 
-            <p>The <code>width=device-width</code> part tells the browser to make the page width match the device's screen width. This prevents the browser from assuming your page is 980 pixels wide (a common desktop default) and shrinking it. Instead, the browser sets the viewport width to match the actual device width, whether that's 375 pixels on a phone or 1920 pixels on a desktop.</p>
+            <h3>Understanding Viewport Attributes</h3>
+            <p><strong><code>width=device-width</code></strong></p>
+            <p>This tells the browser to make the page width <strong>match the device's screen width</strong>. This prevents the browser from assuming your page is <code>980px</code> wide (a common desktop default) and shrinking it.</p>
+            
+            <p>Instead, the browser sets the viewport width to match the actual device width:</p>
+            
+            <ul>
+                <li><code>375px</code> on a typical phone</li>
+                <li><code>768px</code> on a tablet</li>
+                <li><code>1920px</code> on a desktop</li>
+            </ul>
+            
+            <p><strong><code>initial-scale=1.0</code></strong></p>
+            <p>This sets the <strong>initial zoom level</strong> when the page loads. A value of <code>1.0</code> means <strong>no zoom</strong> - the page displays at <strong>100% scale</strong>.</p>
+            
+            <p>This prevents mobile browsers from automatically <strong>zooming out</strong> to fit content, which would make text tiny. Users can still zoom manually if needed, but the page starts at a <em>readable size</em>.</p>
+            
+            <div class="code-example">
+                <code>&lt;!-- Complete viewport tag example --&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;My Responsive Page&lt;/title&gt;
+&lt;/head&gt;</code>
+            </div>
 
-            <p>The <code>initial-scale=1.0</code> part sets the initial zoom level when the page loads. A value of 1.0 means no zoom - the page displays at 100% scale. This prevents mobile browsers from automatically zooming out to fit content, which would make text tiny. Users can still zoom manually if needed, but the page starts at a readable size.</p>
-
-            <p>You can also include <code>maximum-scale=1.0</code> to prevent users from zooming, though this is generally discouraged as it reduces accessibility. Some sites also include <code>user-scalable=no</code> for the same purpose, but again, this limits accessibility and should be avoided unless absolutely necessary for specific design requirements.</p>
-
-            <p>Including the viewport meta tag is the first step in making any website responsive. Without it, even well-designed responsive layouts won't work correctly on mobile devices because browsers will still treat the page as a desktop site and scale it inappropriately.</p>
+            <h3>Additional Viewport Options (Use with Caution)</h3>
+            <p>You can also include additional attributes, though these are <strong>generally discouraged</strong>:</p>
+            
+            <ul>
+                <li><code>maximum-scale=1.0</code> - Prevents users from zooming (reduces accessibility)</li>
+                <li><code>user-scalable=no</code> - Same purpose (limits accessibility)</li>
+            </ul>
+            
+            <p><strong>Why avoid these?</strong></p>
+            <ul>
+                <li>They <strong>reduce accessibility</strong> - some users need to zoom to read content</li>
+                <li>They can make your site <strong>harder to use</strong> for people with visual impairments</li>
+                <li>They should only be used if <strong>absolutely necessary</strong> for specific design requirements</li>
+            </ul>
+            
+            <p><strong>Best practice:</strong> Use the standard <code>width=device-width, initial-scale=1.0</code> and allow users to zoom if needed.</p>
         </div>
 
         <div class="concept-section">

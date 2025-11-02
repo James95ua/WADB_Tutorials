@@ -55,98 +55,208 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio Template</title>
     <style>
+        /* 
+            ========================================
+            CSS RESET AND BASE STYLES
+            ========================================
+        */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            /* border-box includes padding/borders in width calculations */
         }
         
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            /* Modern sans-serif font stack - looks professional */
             line-height: 1.6;
+            /* Comfortable line spacing for readability */
             color: #333;
+            /* Dark gray text for good contrast */
         }
         
-        /* Hero Section - Introduction Area */
+        /* 
+            ========================================
+            HERO SECTION - FIRST IMPRESSION
+            ========================================
+            
+            The hero is the large banner at the top of your portfolio.
+            This is the first thing visitors see - make it count!
+        */
         .hero {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            /* 
+                GRADIENT BACKGROUND:
+                Creates a smooth color transition from purple-blue to purple.
+                135deg = diagonal angle (top-left to bottom-right)
+                You can experiment with:
+                - Different angles: 90deg (vertical), 45deg (diagonal)
+                - Different colors: red to orange, blue to cyan, etc.
+                - Solid colors: background: #667eea; (remove gradient)
+            */
+            
             color: white;
+            /* White text contrasts well with dark gradient */
+            
             padding: 4rem 2rem;
+            /* Large padding creates breathing room */
+            
             text-align: center;
+            /* Centers the hero content */
         }
         
         .hero h1 {
             font-size: 3rem;
+            /* Large, bold headline - grabs attention */
             margin-bottom: 1rem;
         }
         
         .hero p {
             font-size: 1.25rem;
+            /* Slightly larger than body text for emphasis */
             max-width: 600px;
+            /* Prevents text from being too wide */
             margin: 0 auto;
+            /* Centers the paragraph */
         }
         
-        /* Navigation */
+        /* 
+            ========================================
+            NAVIGATION - STICKY HEADER
+            ========================================
+            
+            Sticky navigation stays visible as users scroll,
+            making it easy to navigate your portfolio.
+        */
         nav {
             background-color: rgba(0, 0, 0, 0.1);
+            /* Semi-transparent dark overlay */
+            
             padding: 1rem 0;
             position: sticky;
             top: 0;
+            /* Sticks to top when scrolling */
+            
             backdrop-filter: blur(10px);
+            /* Creates a frosted glass effect */
         }
         
         nav ul {
             list-style: none;
+            /* Removes bullet points */
+            
             display: flex;
+            /* Horizontal navigation items */
+            
             justify-content: center;
+            /* Centers navigation */
+            
             gap: 2rem;
+            /* Space between nav items */
         }
         
         nav a {
             color: white;
             text-decoration: none;
             padding: 0.5rem 1rem;
+            /* Larger clickable area */
         }
         
         nav a:hover {
             background-color: rgba(255, 255, 255, 0.2);
+            /* Highlights on hover */
             border-radius: 4px;
+            /* Rounded corners */
         }
         
-        /* Container for main content */
+        /* 
+            ========================================
+            CONTAINER - CONTENT WRAPPER
+            ========================================
+            
+            Container limits content width and centers it.
+            This creates a clean, focused layout.
+        */
         .container {
             max-width: 1200px;
+            /* Maximum width for readability */
+            
             margin: 0 auto;
+            /* Centers the container */
+            
             padding: 2rem;
+            /* Internal spacing */
         }
         
-        /* Section headings */
+        /* 
+            ========================================
+            SECTION HEADINGS
+            ========================================
+        */
         section h2 {
             font-size: 2rem;
+            /* Large, prominent section titles */
+            
             margin-bottom: 2rem;
+            /* Space below heading */
+            
             text-align: center;
+            /* Centers section titles */
+            
             color: #667eea;
+            /* Matches hero gradient color */
         }
         
-        /* About Section */
+        /* 
+            ========================================
+            ABOUT SECTION
+            ========================================
+            
+            Tell visitors about yourself, your skills, your story.
+            This section helps build connection with visitors.
+        */
         .about {
             padding: 4rem 2rem;
+            /* Large vertical padding */
+            
             background-color: #f9fafb;
+            /* Light gray background for contrast */
         }
         
         .about-content {
             max-width: 800px;
+            /* Optimal reading width */
+            
             margin: 0 auto;
+            /* Centers content */
         }
         
-        /* Projects Grid */
+        /* 
+            ========================================
+            PROJECTS GRID - SHOWCASING YOUR WORK
+            ========================================
+            
+            This is where you display your projects.
+            The grid layout automatically adjusts to screen size.
+        */
         .projects {
             padding: 4rem 2rem;
+            /* Spacing around projects section */
         }
         
         .projects-grid {
             display: grid;
+            /* CSS Grid for flexible layouts */
+            
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            /* 
+                RESPONSIVE GRID:
+                - auto-fit: Creates as many columns as fit
+                - minmax(300px, 1fr): Each column is at least 300px, 
+                  shares remaining space equally
+                - Automatically stacks on smaller screens!
+            */
             gap: 2rem;
             margin-top: 2rem;
         }
