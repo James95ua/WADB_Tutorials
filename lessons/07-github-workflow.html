@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 07: GitHub Workflow</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .lesson-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .learning-outcomes {
+            background-color: #e0f2fe;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--primary-color);
+        }
+        .concept-section {
+            margin-bottom: 3rem;
+        }
+        .code-example {
+            background-color: #1e293b;
+            color: #e2e8f0;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            overflow-x: auto;
+        }
+        .code-example code {
+            font-family: 'Courier New', monospace;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        .worked-example {
+            background-color: #f0f9ff;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+        .exercise {
+            background-color: #fef3c7;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            border-left: 4px solid #f59e0b;
+        }
+        .nav-links {
+            margin-bottom: 2rem;
+        }
+        .nav-links a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="lesson-container">
+        <div class="nav-links">
+            <a href="../index.html">Back to Home</a> | 
+            <a href="06-github-setup.html">Previous Lesson</a>
+        </div>
+
+        <h1>Lesson 07: GitHub Workflow</h1>
+
+        <div class="learning-outcomes">
+            <h2>Learning Outcomes</h2>
+            <p>After this lesson, you will understand how to save changes to GitHub through commits, how to write meaningful commit messages, and how to use branches to work on different versions of your project. You will understand what pull requests are and how to use them for managing changes, and you'll be familiar with collaboration workflows that allow multiple people to work on the same project effectively.</p>
+            
+            <h3>Prerequisites</h3>
+            <p>You should have a GitHub account and have created at least one repository from Lesson 06. Understanding the basic GitHub interface and repository structure is necessary before learning workflow concepts.</p>
+        </div>
+
+        <div class="concept-section">
+            <h2>Understanding Commits and Commit Messages</h2>
+            <p>A commit is a snapshot of your project at a specific point in time. When you make changes to files in your repository and save those changes, you create a commit that permanently records what changed, when it changed, and includes a message describing why the change was made. Commits are the building blocks of version control, allowing you to track your project's evolution and return to previous versions if needed.</p>
+
+            <p>Commits work like save points in a video game. Each time you make meaningful progress or complete a task, you create a commit that saves the current state of your files. If you make a mistake later or want to see how your project looked at an earlier point, you can view or return to any previous commit. This differs from regular file saving because commits include a description of what changed and create a permanent historical record that can't be accidentally overwritten.</p>
+
+            <p>Commit messages are descriptions you write to explain what changed and why. Good commit messages help you and others understand the project's history at a glance. When you view a repository's commit history, you see a list of messages that tell the story of how the project developed. Clear messages make it easy to find specific changes, understand the reasoning behind modifications, and see the progression of features.</p>
+
+            <p>Effective commit messages follow a few guidelines. They should be written in the present tense, describing what the commit does rather than what you did. For example, "Add responsive navigation styles" is better than "Added responsive navigation styles" or "I added responsive navigation styles". The message should be concise but descriptive - ideally one line that summarizes the change, with optional additional lines providing more detail. For simple changes like fixing typos or updating styles, a short message is sufficient. For larger changes or new features, a longer message explaining the context and reasoning is helpful.</p>
+
+            <p>Common commit message patterns include starting with action words like "Add", "Fix", "Update", "Remove", or "Refactor". "Add" indicates new features or files, "Fix" indicates bug fixes, "Update" indicates modifications to existing features, "Remove" indicates deletions, and "Refactor" indicates code improvements that don't change functionality. Following these patterns makes commit histories more readable and professional.</p>
+        </div>
+
+        <div class="concept-section">
+            <h2>Making Commits Through the GitHub Web Interface</h2>
+            <p>You can make commits to your GitHub repository directly through the web interface without installing any additional software. This approach is perfect for beginners and works well for HTML and CSS projects where you're making changes through the browser.</p>
+
+            <p>To edit a file and commit changes, navigate to your repository and click on the file you want to modify. You'll see a pencil icon in the top right of the file view. Clicking this icon opens the file in GitHub's built-in editor, which provides a text editing interface similar to a basic code editor. Make your changes to the file - you can modify HTML, CSS, or any text-based content directly in this interface.</p>
+
+            <p>After making changes, scroll down to the "Commit changes" section at the bottom of the page. Here you'll see two fields: a commit message field and an optional extended description field. The commit message field is required and should contain a brief description of your changes. For example, if you updated the color scheme of your website, you might write "Update color scheme to use blue palette" in the commit message field.</p>
+
+            <p>GitHub offers two options for how to commit: you can commit directly to the main branch, or you can create a new branch for the commit and start a pull request. For simple projects where you're working alone, committing directly to the main branch is fine. For learning purposes or when you want to review changes before they go live, creating a branch and pull request provides a safer workflow. We'll cover branches and pull requests in more detail later in this lesson.</p>
+
+            <p>Once you've written your commit message and chosen where to commit, click the green "Commit changes" button. GitHub saves your changes and creates a new commit in your repository's history. You can see this commit in the repository's commit history, which is accessible from the repository's main page. The commit includes your message, the exact changes made, and a timestamp showing when the commit was created.</p>
+
+            <p>This web-based workflow is accessible and straightforward, making it ideal for beginners. As you become more comfortable with GitHub, you might choose to use desktop applications or command-line tools that provide more advanced features, but the web interface remains a powerful and convenient way to manage your repositories.</p>
+        </div>
+
+        <div class="concept-section">
+            <h2>Understanding Branches</h2>
+            <p>Branches in Git and GitHub allow you to work on different versions of your project simultaneously without affecting the main version. Think of branches like alternate timelines - you can experiment with new features, try different approaches, or work on multiple tasks in parallel, all while keeping your main branch stable and functional.</p>
+
+            <p>The main branch, typically called "main" or "master," represents the primary, stable version of your project. This is the version that's ready to share, deploy, or use. When you first create a repository, it starts with just the main branch. As your project grows, you might want to experiment with new features or redesigns without risking your stable main version. Branches let you create copies of your project where you can make changes safely.</p>
+
+            <p>When you create a new branch, you're creating an independent line of development that starts from the current state of your main branch. Changes you make on this new branch don't affect the main branch until you decide to merge them together. This means you can try out ideas, experiment with designs, or work on features without worrying about breaking your working website. If an experiment doesn't work out, you can simply delete the branch without affecting your main project.</p>
+
+            <p>Branches are especially useful when working on larger changes or multiple features simultaneously. For example, you might create a branch called "redesign-header" to work on updating your website's header, and another branch called "add-contact-form" to work on a new contact page. Both branches start from the same point but develop independently. When each feature is complete and tested, you can merge the branch back into main, incorporating the changes into your primary project.</p>
+
+            <p>Naming branches clearly helps you remember what each branch is for. Good branch names are descriptive and use hyphens instead of spaces, such as "fix-navigation-bug" or "add-responsive-images". Some teams use naming conventions like starting with feature/, fix/, or experiment/ to categorize branches, but for personal projects, clear descriptive names are sufficient.</p>
+
+            <p>Understanding branches becomes increasingly valuable as projects grow. Even for simple websites, branches provide a safe way to experiment with design changes or try new features. The ability to work on changes independently, test them thoroughly, and then merge them only when ready creates a professional workflow that scales from personal projects to large team collaborations.</p>
+        </div>
+
+        <div class="concept-section">
+            <h2>Creating and Using Branches</h2>
+            <p>Creating a branch on GitHub is straightforward through the web interface. You can create branches to experiment with changes, work on new features, or try different approaches to your design without affecting your main branch.</p>
+
+            <p>To create a new branch, navigate to your repository and look near the top left where you'll see a dropdown or button showing your current branch name, typically "main". Clicking this opens a branch selector interface. You'll see an option to create a new branch, or you can type a new branch name in a search field. When you type a branch name that doesn't exist, GitHub offers to create it for you.</p>
+
+            <p>After creating or switching to a branch, you'll see that branch name displayed where the branch selector was. Any commits you make now will go to this branch instead of main. The branch starts as an exact copy of main at the point you created it, so all your existing files and their current state are present. You can now make changes, edit files, and create commits on this branch without affecting main.</p>
+
+            <p>When working on a branch, the workflow is the same as working on main - you edit files, write commit messages, and save changes. The difference is that these changes exist only on your branch until you merge them. You can view your branch's commit history separately from main, seeing exactly what changes you've made. This isolation lets you experiment freely, knowing your main branch remains unchanged.</p>
+
+            <p>When you're ready to incorporate your branch's changes into main, you merge the branch. Merging combines the changes from your branch into main, bringing those commits and file modifications into the main branch. GitHub provides a simple interface for merging through pull requests, which we'll discuss next. After merging, your branch's changes become part of main, and you can continue working from there or create new branches for future features.</p>
+        </div>
+
+        <div class="concept-section">
+            <h2>Understanding Pull Requests</h2>
+            <p>Pull requests, often abbreviated as PRs, are proposals to merge changes from one branch into another. While the name might suggest requesting someone else to pull your changes, pull requests are valuable even when working alone because they provide a structured way to review, discuss, and merge changes before they become part of your main branch.</p>
+
+            <p>When you create a pull request, you're proposing that changes from a branch should be merged into another branch, typically from a feature branch into main. The pull request shows exactly what would change - which files would be modified, added, or deleted, and what the specific changes are. This preview allows you to review changes before they're merged, ensuring everything looks correct and works as intended.</p>
+
+            <p>Pull requests include several important components. The title should clearly describe what the pull request does, similar to a good commit message. The description field allows you to explain the changes in detail, why you made them, and any relevant context. GitHub automatically shows a diff - a side-by-side comparison - of all files that would change, highlighting exactly what's being added, removed, or modified. This visual representation makes it easy to review changes before merging.</p>
+
+            <p>When working alone, pull requests serve as a review checkpoint. Before merging changes into main, you can review the pull request to ensure everything is correct, test any changes if possible, and write notes about what was changed and why. This practice creates good habits for collaboration and helps catch mistakes before they become part of your main branch. The pull request also creates a record of why changes were made, which is valuable when looking back at project history.</p>
+
+            <p>In collaborative projects, pull requests become essential communication tools. Team members can review proposed changes, leave comments asking questions or suggesting improvements, and discuss the implementation before merging. The pull request author can make additional commits to address feedback, and all of this discussion is preserved in the project history. Even for solo projects, using pull requests prepares you for professional workflows and creates better organized project histories.</p>
+        </div>
+
+        <div class="worked-example">
+            <h2>Worked Example: Complete Workflow with Branch and Pull Request</h2>
+            <p>This example demonstrates a complete workflow from creating a branch through making changes and merging them via a pull request. Following this process shows how branches and pull requests work together to create organized, reviewable changes to your project.</p>
+
+            <p>Start with an existing repository that has some HTML and CSS files. You want to update the color scheme of your website, but you want to experiment with this change without affecting your current working version. Begin by creating a new branch called "update-colors" using the branch selector in your repository interface.</p>
+
+            <p>After creating and switching to the new branch, edit your CSS file through GitHub's web interface. Make your color changes - perhaps updating the primary color from blue to green, or changing the background color scheme. Save these changes with a commit message like "Update color scheme to green palette". This commit exists only on your "update-colors" branch; your main branch remains unchanged.</p>
+
+            <p>Continue working on this branch if needed. You might realize you also want to adjust font sizes to work better with the new colors, so make another commit with those changes. Each commit builds on the previous one, and all of them exist only on your branch until you merge.</p>
+
+            <p>Once you're satisfied with your changes and want to incorporate them into main, create a pull request. Navigate to the "Pull requests" tab in your repository and click "New pull request". GitHub will ask you to select which branches to compare - choose your "update-colors" branch as the source and "main" as the destination. GitHub shows you a preview of what would change if you merge the pull request.</p>
+
+            <p>Write a clear title for your pull request, such as "Update website color scheme to green palette". In the description, explain what changed and why. For example, "This PR updates the color scheme from blue to green to better match the project's theme. Also includes font size adjustments to improve readability with the new colors." This description helps you remember the reasoning later and serves as documentation.</p>
+
+            <p>Review the changes GitHub shows in the diff view. Make sure all modifications look correct and that nothing unintended was changed. If you notice something that needs adjustment, you can make additional commits to your branch, and they'll automatically appear in the pull request.</p>
+
+            <p>When you're ready, click the "Merge pull request" button. GitHub merges your branch into main, incorporating all your commits and changes. After merging, you can delete the "update-colors" branch since its changes are now in main. Your main branch now contains your updated color scheme, and your website reflects these changes.</p>
+
+            <p>This workflow - create branch, make changes, create pull request, review, merge - might seem like extra steps for simple changes. However, it creates organized, reviewable changes and establishes habits that scale well as projects grow. Even for solo projects, this process helps catch mistakes and creates clearer project history.</p>
+        </div>
+
+        <div class="concept-section">
+            <h2>Collaboration Basics</h2>
+            <p>GitHub's collaboration features allow multiple people to work on the same project simultaneously without conflicts or lost work. Understanding how collaboration works prepares you for working with others, whether on open-source projects, team assignments, or future professional development work.</p>
+
+            <p>When collaborating, each person works on their own copy of the repository, which they can modify independently. Contributors typically create branches for their work, make changes and commits on those branches, then propose merging those changes through pull requests. The repository owner or maintainers review pull requests and merge them when changes are approved. This workflow prevents conflicts and allows multiple people to work on different parts of the project simultaneously.</p>
+
+            <p>To collaborate on someone else's repository, you typically fork the repository, which creates your own copy linked to the original. You can make any changes you want in your fork without affecting the original repository. When you're ready to contribute your changes back, you create a pull request from your fork to the original repository. The repository owner reviews your pull request and can merge it if they approve your changes.</p>
+
+            <p>Alternatively, repository owners can add collaborators directly, giving them permission to create branches and pull requests within the same repository. This is common for team projects where everyone has equal contribution rights. Collaborators work on separate branches, create pull requests to propose changes, and review each other's work before merging.</p>
+
+            <p>GitHub's issue system complements collaboration by tracking bugs, feature requests, and tasks. Issues can be assigned to contributors, linked to pull requests that address them, and organized with labels. This creates a clear record of what work needs to be done and how it progresses through development.</p>
+
+            <p>Understanding these collaboration workflows prepares you for real-world development scenarios. Even when working alone, practicing with branches and pull requests develops skills that translate directly to professional environments where collaboration is essential. The ability to work effectively with version control and code review processes is highly valued in software development careers.</p>
+        </div>
+
+        <div class="exercise">
+            <h2>Practice Opportunity</h2>
+            <p>Practice the complete GitHub workflow by creating a branch in one of your repositories, making a small change such as updating colors or adding content, committing the change with a clear message, then creating a pull request to merge it back into main. Review the pull request to see how GitHub displays your changes, then merge it. After merging, verify that your changes appear in the main branch and delete the feature branch you created.</p>
+
+            <p>Create multiple commits on a branch to see how the commit history builds up. Make related changes across multiple files, committing each logical group of changes separately with descriptive messages. Observe how the pull request shows all commits and changes together, giving you a complete view of what would be merged before you finalize it.</p>
+        </div>
+
+        <div class="concept-section">
+            <h2>Summary of Key Concepts</h2>
+            <p>Commits are snapshots of your project that record changes with descriptive messages, creating a permanent history you can review or return to. Branches allow you to work on different versions simultaneously, enabling experimentation without affecting your main branch. Pull requests provide a structured way to review and merge changes, serving as both a safety checkpoint and a record of what changed and why. Collaboration workflows use these tools to allow multiple people to work on projects simultaneously while maintaining code quality and clear project history.</p>
+
+            <p>These GitHub workflow concepts form the foundation of professional software development practices. Understanding commits, branches, and pull requests prepares you for both solo projects and team collaboration. The habits you develop - writing clear commit messages, using branches for features, and reviewing changes through pull requests - scale from simple websites to complex applications. These skills demonstrate professional competency and align with industry-standard development workflows.</p>
+        </div>
+
+        <div class="concept-section">
+            <h2>Next Steps</h2>
+            <p>Now that you understand GitHub workflows, Lesson 08 covers deploying your HTML and CSS websites to the internet using GitHub Pages. You'll learn how to publish your websites for free so anyone can visit them online.</p>
+        </div>
+
+        <div class="concept-section">
+            <h2>Bibliography</h2>
+            <p>GitHub. "Understanding the GitHub Flow." GitHub Guides. <a href="https://guides.github.com/introduction/flow/">https://guides.github.com/introduction/flow/</a></p>
+            
+            <p>GitHub. "About Pull Requests." GitHub Docs. <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests">https://docs.github.com/en/pull-requests/collaborating-with-pull-requests</a></p>
+
+            <p>Pro Git Book. "Git Branching." Pro Git. <a href="https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell">https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell</a></p>
+
+            <p>Atlassian. "Git Branching Tutorial." Atlassian Git Tutorials. <a href="https://www.atlassian.com/git/tutorials/using-branches">https://www.atlassian.com/git/tutorials/using-branches</a></p>
+        </div>
+
+        <div class="nav-links" style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border-color);">
+            <a href="../index.html">Back to Home</a> | 
+            <a href="06-github-setup.html">Previous Lesson</a> | 
+            <a href="08-github-pages.html">Next Lesson: GitHub Pages</a>
+        </div>
+    </div>
+</body>
+</html>
+

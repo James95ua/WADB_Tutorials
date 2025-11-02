@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 02: Semantic HTML</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/navigation.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/lessons.css">
+    <script src="../script.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar minimal">
+            <div class="container">
+                <a href="../index.html" class="logo">Learn HTML & CSS</a>
+                <button class="menu-toggle" aria-label="Open navigation menu" aria-expanded="false">
+                    ☰ Menu
+                </button>
+                <ul class="nav-links">
+                    <li><a href="../index.html#home">Home</a></li>
+                    <li><a href="../index.html#lessons">Lessons</a></li>
+                    <li><a href="../index.html#examples">Examples</a></li>
+                    <li><a href="../index.html#templates">Templates</a></li>
+                    <li><a href="../index.html#github">GitHub</a></li>
+                    <li><a href="../design-resources.html">Design Resources</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="lesson-container">
+        <div class="lesson-nav-links">
+            <a href="../index.html">Back to Home</a> | 
+            <a href="01-html-basics.html">Previous Lesson</a>
+        </div>
+
+        <h1>Lesson 02: Semantic HTML</h1>
+
+        <div class="learning-outcomes">
+            <h2>Learning Outcomes</h2>
+            <p>After completing this lesson, you will understand what semantic HTML means and why it matters for accessibility and website structure. You will be able to identify semantic HTML tags and know when to use them appropriately. You will also recognize the difference between semantic and non-semantic markup, and understand how semantic HTML improves the experience for users who rely on assistive technologies.</p>
+            
+            <h3>Prerequisites</h3>
+            <p>You should be comfortable with the basic HTML structure covered in Lesson 01, including understanding how tags work, creating headings and paragraphs, and the overall document structure with head and body sections.</p>
+        </div>
+
+        <div class="concept-section">
+            <h2>What is Semantic HTML and Why It Matters</h2>
+            <p>Semantic HTML refers to using HTML tags that clearly describe their meaning and purpose. The word "semantic" relates to meaning, so semantic HTML is markup that carries meaning about the content it contains, not just instructions about how it should look. When you use a semantic tag like <code>&lt;article&gt;</code> or <code>&lt;nav&gt;</code>, you're telling browsers, search engines, and assistive technologies what that section of your page represents, not just how it should be styled.</p>
+
+            <p>This matters because websites are read and interpreted by many different systems, not just visual browsers. Screen readers used by people with visual impairments rely on semantic HTML to understand page structure and navigate content effectively. Search engines use semantic HTML to better understand the content and context of your pages, which can improve how your site appears in search results. Browser features like reader mode that strip away distractions depend on semantic markup to identify the main content. Even developers working on your code in the future will find it much easier to understand and maintain if the HTML clearly expresses the meaning of each section.</p>
+
+            <p>Before HTML5, developers often used generic <code>&lt;div&gt;</code> tags for everything, adding class names like "header" or "navigation" to indicate purpose. While this worked for visual styling, it didn't provide any meaningful structure that machines or assistive technologies could understand. Semantic HTML5 tags solve this problem by providing elements specifically designed to represent common page sections and content types. Using these tags creates more accessible, maintainable, and meaningful web pages.</p>
+        </div>
+
+        <div class="concept-section">
+            <h2>Common Semantic HTML5 Elements</h2>
+            <p>HTML5 introduced many semantic elements designed to represent common patterns found on web pages. Understanding when and how to use these elements helps you create better-structured, more accessible websites.</p>
+
+            <p>The <code>&lt;header&gt;</code> element represents introductory content or navigational aids for its nearest ancestor section or the entire page. While you might think of "header" as just the top of a page, a header element can actually appear multiple times on a page - once for the entire document, and once within each major section if that section has its own introductory content. This element typically contains headings, logos, navigation, or author information relevant to that section or the entire page.</p>
+
+            <p>The <code>&lt;nav&gt;</code> element represents a section of a page whose purpose is to provide navigation links. This could be the main site navigation, a table of contents, or any collection of links that help users move around the site. Not every link on your page should be inside a nav element - only those that form a major navigation block. Including links within a nav element helps screen readers identify navigation areas and allows users to skip directly to navigation if they wish.</p>
+
+            <p>The <code>&lt;main&gt;</code> element represents the dominant content of the document. There should be only one main element per page, and it should not be nested inside other semantic elements like article, aside, header, footer, or nav. The main content is the unique content of this page that isn't repeated across other pages. Screen readers can use this element to jump directly to the main content, which is especially useful on pages with extensive navigation or headers.</p>
+
+            <p>The <code>&lt;article&gt;</code> element represents a self-contained composition that could be distributed independently from the rest of the site. Examples include blog posts, news articles, forum posts, or any content item that makes sense on its own. An article should have its own heading structure and could theoretically be republished elsewhere without losing meaning. If your page has multiple independent pieces of content, each one should be wrapped in its own article element.</p>
+
+            <p>The <code>&lt;section&gt;</code> element represents a generic standalone section of a document. Sections should always have a heading that describes their purpose. Use section to group related content that forms a distinct part of a larger whole. For example, if you have a page with multiple topics, each topic could be its own section. The key is that each section should represent a distinct thematic grouping of content.</p>
+
+            <p>The <code>&lt;aside&gt;</code> element represents content that is tangentially related to the content around it. This often appears as sidebars, call-out boxes, or complementary information. Examples include related links, author information, or definitions that enhance understanding but aren't essential to the main content flow.</p>
+
+            <p>The <code>&lt;footer&gt;</code> element represents footer content for its nearest sectioning element or the entire page. Footers typically contain copyright information, contact details, links to related pages, or other metadata. Like headers, footers can appear multiple times on a page - once for the entire document and within individual sections.</p>
+
+            <p>Understanding when to use article versus section can be confusing at first. A helpful way to think about it is this: if the content makes complete sense on its own and could be distributed independently, use article. If the content is part of a larger whole and needs context from the page, use section. When in doubt, consider whether someone reading just that content would understand it without the rest of the page.</p>
+        </div>
+
+        <div class="comparison">
+            <h2>Semantic vs. Non-Semantic Markup</h2>
+            <p>To understand the difference semantic HTML makes, consider how the same content structure could be marked up in different ways. Non-semantic markup relies on generic <code>&lt;div&gt;</code> elements with class names that only provide visual organization. Semantic markup uses elements that carry inherent meaning about the content they contain.</p>
+
+            <p>For example, a non-semantic approach might wrap a navigation menu in a div with a class name: <code>&lt;div class="navigation"&gt;</code>. While this works for styling with CSS, it provides no semantic meaning. A screen reader can't distinguish this div from any other div on the page. However, using <code>&lt;nav&gt;</code> instead immediately communicates that this is a navigation section, allowing assistive technologies to identify it, announce it to users, and potentially provide shortcuts to it.</p>
+
+            <p>This difference becomes even more important when you consider how search engines and other automated systems parse web pages. A search engine can understand that content within an <code>&lt;article&gt;</code> element represents the main article content, which may receive different treatment in search rankings than content in an <code>&lt;aside&gt;</code> element. These semantic distinctions help search engines better understand and index your content.</p>
+        </div>
+
+        <div class="worked-example">
+            <h2>Worked Example: Structuring a Blog Post Page</h2>
+            <p>Creating a well-structured blog post page demonstrates how semantic HTML elements work together to create meaningful document structure. We'll build a page that includes a header, navigation, main content area with an article, and a footer, showing how each semantic element contributes to the overall page organization.</p>
+
+            <p>Start with the basic HTML document structure you learned in Lesson 01. Inside the body element, begin with a <code>&lt;header&gt;</code> element that contains the site title and main navigation. The header wraps both the site branding and the primary navigation because these elements together form the introductory section of the page. Inside the header, place a <code>&lt;nav&gt;</code> element containing your navigation links. This clearly identifies the navigation section for assistive technologies.</p>
+
+            <p>After the header, add a <code>&lt;main&gt;</code> element. This will contain the primary content of your page. Inside main, place an <code>&lt;article&gt;</code> element for your blog post. The article element is appropriate here because a blog post is self-contained content that makes sense independently. Within the article, use heading tags to structure the content, paragraph tags for text, and any other content elements you need.</p>
+
+            <p>If you want to include related links or author information, add an <code>&lt;aside&gt;</code> element either inside the article or as a sibling to it, depending on whether the sidebar relates specifically to this article or to the entire page. Finally, add a <code>&lt;footer&gt;</code> element after the main content to contain copyright information or site-wide links.</p>
+
+            <div class="code-example">
+                <code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;My Blog Post&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;header&gt;
+        &lt;h1&gt;My Blog&lt;/h1&gt;
+        &lt;nav&gt;
+            &lt;a href="/"&gt;Home&lt;/a&gt;
+            &lt;a href="/about"&gt;About&lt;/a&gt;
+            &lt;a href="/contact"&gt;Contact&lt;/a&gt;
+        &lt;/nav&gt;
+    &lt;/header&gt;
+    
+    &lt;main&gt;
+        &lt;article&gt;
+            &lt;h2&gt;Understanding Semantic HTML&lt;/h2&gt;
+            &lt;p&gt;Semantic HTML helps create accessible websites...&lt;/p&gt;
+            &lt;section&gt;
+                &lt;h3&gt;What Makes HTML Semantic&lt;/h3&gt;
+                &lt;p&gt;Semantic tags carry meaning about content...&lt;/p&gt;
+            &lt;/section&gt;
+        &lt;/article&gt;
+        
+        &lt;aside&gt;
+            &lt;h3&gt;Related Posts&lt;/h3&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;a href="#"&gt;Previous Post&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/aside&gt;
+    &lt;/main&gt;
+    
+    &lt;footer&gt;
+        &lt;p&gt;&copy; 2024 My Blog. All rights reserved.&lt;/p&gt;
+    &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code>
+            </div>
+
+            <p>Notice how each semantic element clearly communicates its purpose. A screen reader user can navigate directly to the main content, jump to the navigation, or identify the article content separately from the aside content. Search engines understand that the article contains the primary content, while the aside contains supplementary material. This structure makes your page more accessible and easier for both humans and machines to understand.</p>
+        </div>
+
+        <div class="exercise">
+            <h2>Practice Opportunity</h2>
+            <p>Create an HTML page about your favorite hobby or interest. Structure it using semantic HTML5 elements including a header with navigation, a main section containing an article, and a footer. Within the article, organize your content into logical sections using the section element. Each section should have its own heading. Include an aside element with related information or additional resources about your topic.</p>
+
+            <p>After creating your page, test it by viewing it in a browser. Consider how the semantic structure helps organize your content logically. Think about how a screen reader user would experience navigating your page, and how each semantic element provides context about what type of content it contains.</p>
+        </div>
+
+        <div class="concept-section">
+            <h2>Summary of Key Concepts</h2>
+            <p>Semantic HTML uses tags that carry meaning about their content, not just styling instructions. This creates more accessible websites that work better with assistive technologies, search engines, and other automated systems. HTML5 provides semantic elements like header, nav, main, article, section, aside, and footer that represent common page structures and content types.</p>
+
+            <p>Choosing the appropriate semantic element for your content improves the structure and meaning of your HTML documents. While you can still use div elements when no semantic element fits, preferring semantic elements whenever possible creates better, more maintainable, and more accessible web pages. The goal is to write HTML that clearly communicates both to visual browsers and to all the other systems that need to understand your content.</p>
+        </div>
+
+        <div class="concept-section">
+            <h2>Next Steps</h2>
+            <p>With a solid understanding of HTML structure and semantic markup, you're ready to learn how to style your pages with CSS. Lesson 03 covers CSS basics, teaching you how to add colors, fonts, spacing, and other visual styling to bring your HTML content to life.</p>
+        </div>
+
+        <div class="concept-section">
+            <h2>Bibliography</h2>
+            <p>Mozilla Developer Network. "HTML Semantic Elements." MDN Web Docs. <a href="https://developer.mozilla.org/en-US/docs/Glossary/Semantics">https://developer.mozilla.org/en-US/docs/Glossary/Semantics</a></p>
+            
+            <p>Mozilla Developer Network. "HTML5 Semantic Elements Reference." MDN Web Docs. <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element">https://developer.mozilla.org/en-US/docs/Web/HTML/Element</a></p>
+
+            <p>WebAIM. "Semantic Structure: Regions and Landmarks." WebAIM. <a href="https://webaim.org/techniques/semanticstructure/">https://webaim.org/techniques/semanticstructure/</a></p>
+
+            <p>W3C. "HTML5: A vocabulary and associated APIs for HTML and XHTML." W3C Recommendation. <a href="https://www.w3.org/TR/html5/">https://www.w3.org/TR/html5/</a></p>
+        </div>
+
+        <div class="lesson-nav-links" style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border-color);">
+            <a href="../index.html">Back to Home</a> | 
+            <a href="01-html-basics.html">Previous Lesson</a> | 
+            <a href="03-css-basics.html">Next Lesson: CSS Basics</a>
+        </div>
+    </div>
+</body>
+</html>
+

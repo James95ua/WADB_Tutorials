@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 03: CSS Basics</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .lesson-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .learning-outcomes {
+            background-color: #e0f2fe;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--primary-color);
+        }
+        .concept-section {
+            margin-bottom: 3rem;
+        }
+        .code-example {
+            background-color: #1e293b;
+            color: #e2e8f0;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            overflow-x: auto;
+        }
+        .code-example code {
+            font-family: 'Courier New', monospace;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        .worked-example {
+            background-color: #f0f9ff;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+        .exercise {
+            background-color: #fef3c7;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            border-left: 4px solid #f59e0b;
+        }
+        .nav-links {
+            margin-bottom: 2rem;
+        }
+        .nav-links a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        .demo-box {
+            border: 2px solid #2563eb;
+            padding: 1rem;
+            margin: 1rem 0;
+            background-color: #eff6ff;
+        }
+    </style>
+</head>
+<body>
+    <div class="lesson-container">
+        <div class="nav-links">
+            <a href="../index.html">Back to Home</a> | 
+            <a href="02-html-semantics.html">Previous Lesson</a>
+        </div>
+
+        <h1>Lesson 03: CSS Basics</h1>
+
+        <div class="learning-outcomes">
+            <h2>Learning Outcomes</h2>
+            <p>Upon completing this lesson, you will understand what CSS is and how it works with HTML to style web pages. You will be able to write CSS rules using selectors, properties, and values. You will know how to link CSS files to HTML documents and apply styles to HTML elements. You will also understand the basic CSS properties for controlling colors, fonts, spacing, and borders, which form the foundation for all visual styling.</p>
+            
+            <h3>Prerequisites</h3>
+            <p>You should be comfortable creating HTML documents with proper structure, using semantic HTML5 elements, and understanding how HTML tags work. This lesson builds on your HTML knowledge by adding visual styling capabilities.</p>
+        </div>
+
+        <div class="concept-section">
+            <h2>What is CSS and How Does It Work?</h2>
+            <p>CSS stands for Cascading Style Sheets. CSS is a language designed to describe how HTML elements should be displayed visually. While HTML provides the structure and meaning of web content, CSS controls the presentation - things like colors, fonts, spacing, layout, and visual effects. The separation between HTML structure and CSS presentation is fundamental to web development, allowing you to change the appearance of a website without modifying the underlying HTML content.</p>
+
+            <p>The word "cascading" in CSS refers to how multiple style rules can apply to the same element, with some rules taking precedence over others based on specificity and order. This allows you to define general styles that apply broadly, then override them with more specific rules where needed. The cascade also means that styles can be defined in multiple places - in external stylesheets, internal style blocks, or inline within HTML attributes - and CSS has rules for determining which styles take effect when there are conflicts.</p>
+
+            <p>CSS works by targeting HTML elements using selectors and then applying visual properties to those elements. A CSS rule consists of a selector that identifies which elements to style, followed by a declaration block containing one or more property-value pairs that describe how those elements should look. The browser reads both the HTML and CSS files, matches the selectors to HTML elements, and applies the specified styles when rendering the page. This process happens separately from the HTML structure, which means you can completely redesign how a page looks by changing only the CSS file, without touching the HTML.</p>
+
+            <p>Understanding CSS matters because it transforms plain HTML documents into visually appealing, branded, and user-friendly websites. Every website you visit uses CSS extensively to create its visual design. Learning CSS gives you control over typography, color schemes, spacing, layout, and visual hierarchy - all the elements that make websites engaging and easy to use.</p>
+        </div>
+
+        <div class="concept-section">
+            <h2>How to Include CSS in Your HTML Pages</h2>
+            <p>There are three ways to include CSS with your HTML: external stylesheets, internal style blocks, and inline styles. Each method has appropriate uses, though external stylesheets are preferred for most situations because they separate styling from content and allow you to style multiple pages with a single CSS file.</p>
+
+            <p>The most common and recommended approach is using an external stylesheet. This involves creating a separate file with a .css extension that contains all your CSS rules. To connect this file to your HTML document, you add a <code>&lt;link&gt;</code> element in the <code>&lt;head&gt;</code> section of your HTML. The link element requires two attributes: <code>rel="stylesheet"</code> which tells the browser this is a stylesheet, and <code>href</code> which specifies the path to your CSS file. For example, if your CSS file is named styles.css and is in the same folder as your HTML file, you would write <code>&lt;link rel="stylesheet" href="styles.css"&gt;</code> in the head section. This approach keeps your HTML clean and allows you to maintain all styling in one central location.</p>
+
+            <p>Internal style blocks involve placing CSS directly within your HTML file using a <code>&lt;style&gt;</code> element in the head section. This is useful for page-specific styles that won't be reused elsewhere, or for quick prototypes. However, internal styles don't provide the same separation of concerns as external stylesheets, and they can make HTML files harder to maintain when styles grow complex.</p>
+
+            <p>Inline styles apply CSS directly to individual HTML elements using the style attribute. While this gives you precise control over specific elements, inline styles are generally discouraged except for special cases because they mix presentation with structure, making code harder to maintain and preventing you from reusing styles across multiple elements. They also have high specificity, which can make it difficult to override them with external stylesheets later.</p>
+
+            <p>For learning and building websites, you'll primarily use external stylesheets. This practice keeps your code organized, allows browsers to cache the CSS file for faster loading on subsequent page visits, and makes it easy to apply consistent styling across multiple pages of a website.</p>
+        </div>
+
+        <div class="concept-section">
+            <h2>Understanding CSS Syntax: Selectors, Properties, and Values</h2>
+            <p>CSS follows a specific syntax that consists of selectors, properties, and values. Understanding this syntax is essential for writing effective CSS rules that target the right elements and apply the styles you want.</p>
+
+            <p>A CSS rule begins with a selector, which identifies which HTML elements the rule will apply to. The simplest selector is an element selector, which targets elements by their tag name. For example, the selector <code>p</code> targets all paragraph elements, while <code>h1</code> targets all first-level headings. After the selector comes a declaration block, which is enclosed in curly braces. Inside the declaration block, you write property-value pairs, each ending with a semicolon. A property is the aspect of styling you want to change, like color or font-size, and the value is what you're setting that property to, like blue or 18px.</p>
+
+            <p>Multiple properties can be applied to the same selector by including them within the same declaration block. Each property-value pair goes on its own line for readability, though technically they can all be on one line. The semicolon after each property-value pair tells CSS where one declaration ends and the next begins. The final property in a block can optionally omit the semicolon, but including it consistently helps prevent errors if you add more properties later.</p>
+
+            <div class="code-example">
+                <code>p {
+    color: blue;
+    font-size: 16px;
+    margin-bottom: 20px;
+}</code>
+            </div>
+
+            <p>In this example, <code>p</code> is the selector targeting all paragraph elements. The declaration block contains three property-value pairs: color is set to blue, font-size is set to 16 pixels, and margin-bottom is set to 20 pixels. When the browser renders any paragraph on the page, it will apply all three of these styles.</p>
+
+            <p>CSS property names use kebab-case, meaning words are separated by hyphens. Common properties include color for text color, background-color for background colors, font-family for choosing fonts, font-size for text size, margin for spacing outside elements, padding for spacing inside elements, and border for adding borders around elements. Each property accepts specific types of values - colors can be named colors like "blue" or "red", hex codes like "#ff0000", or RGB values. Sizes can be specified in pixels (px), percentages (%), or other units we'll explore later.</p>
+        </div>
+
+        <div class="concept-section">
+            <h2>Essential CSS Properties for Beginners</h2>
+            <p>Several CSS properties appear in almost every stylesheet you'll create. Understanding these fundamental properties gives you the building blocks to style any element on a web page.</p>
+
+            <p>The <code>color</code> property controls the text color of an element. You can specify colors using predefined names like "red", "blue", or "darkgray", or use more precise color formats like hex codes. Hex codes begin with a hash symbol followed by six characters representing red, green, and blue values. For example, #ff0000 is pure red, #00ff00 is pure green, and #000000 is black. Understanding color allows you to create visual hierarchy and establish the color scheme of your website.</p>
+
+            <p>The <code>background-color</code> property sets the background color of an element. This works similarly to the color property but affects the area behind the text rather than the text itself. Using background-color along with color allows you to create contrast and readability. For example, white text on a dark background or dark text on a light background ensures content remains readable.</p>
+
+            <p>The <code>font-family</code> property specifies which font should be used for text. You can list multiple font names separated by commas, and the browser will use the first available font. It's common to list a specific font first, then fallback fonts, and finally a generic font family like "sans-serif" or "serif". For example, <code>font-family: Arial, Helvetica, sans-serif;</code> tells the browser to use Arial if available, otherwise Helvetica, and if neither is available, any sans-serif font. This ensures your text displays appropriately even if users don't have specific fonts installed.</p>
+
+            <p>The <code>font-size</code> property controls how large text appears. Common units include pixels (px), which provide fixed sizes, and percentages or em units, which provide relative sizes. For beginners, pixels offer the most straightforward control. Typical body text might be 16px, while headings might be 24px or larger. Understanding font-size helps you create visual hierarchy, making important content stand out and improving readability.</p>
+
+            <p>The <code>margin</code> property creates space outside an element, separating it from surrounding elements. You can specify margin for all sides at once with a single value, or control each side individually using margin-top, margin-right, margin-bottom, and margin-left. Margins are essential for creating breathing room between elements and establishing the overall spacing rhythm of your page.</p>
+
+            <p>The <code>padding</code> property creates space inside an element, between the element's border and its content. Like margin, you can set padding for all sides or individual sides. Padding ensures that text or other content doesn't sit directly against an element's edges, improving readability and visual appeal.</p>
+
+            <p>The <code>border</code> property adds a border around an element. You typically specify three things: the border width (like 2px), the border style (like solid, dashed, or dotted), and the border color. For example, <code>border: 2px solid black;</code> creates a two-pixel-wide solid black border. Borders help separate sections, highlight important content, or create visual definition.</p>
+        </div>
+
+        <div class="worked-example">
+            <h2>Worked Example: Styling a Simple Page</h2>
+            <p>Creating a styled web page demonstrates how CSS transforms plain HTML into a visually designed page. We'll style a simple HTML page about a topic, applying colors, fonts, spacing, and other basic CSS properties to create an appealing design.</p>
+
+            <p>First, create an HTML file with some basic content. Include a heading, a few paragraphs, and perhaps a link. Save this file with an appropriate name. Then create a new file called styles.css in the same directory. This will be your external stylesheet.</p>
+
+            <p>In your HTML file's head section, add a link element to connect your CSS file: <code>&lt;link rel="stylesheet" href="styles.css"&gt;</code>. This tells the browser to load and apply the styles from your CSS file when rendering the HTML page.</p>
+
+            <p>Now open your CSS file and begin writing styles. Start with the body element, which represents the entire page. Set a font-family to establish the default font for all text. Choose a readable font stack like <code>font-family: Arial, Helvetica, sans-serif;</code>. Set a background-color for the page, perhaps a light gray or off-white, and set a text color that contrasts well, like a dark gray or black.</p>
+
+            <p>Next, style your heading. Target the h1 element and set a larger font-size, perhaps 36px or 2.5rem. Choose a color that stands out, perhaps matching a theme color for your site. Add some margin-bottom to create space between the heading and the content that follows. You might also center the heading using <code>text-align: center;</code>.</p>
+
+            <p>Style your paragraphs by targeting the p selector. Set an appropriate font-size for readability, typically 16px to 18px. Add some margin-bottom to create space between paragraphs. You might set a maximum width using <code>max-width: 600px;</code> and <code>margin: 0 auto;</code> to center the text and prevent lines from becoming too long, which improves readability.</p>
+
+            <p>Style your links by targeting the a selector. Set a color that distinguishes links from regular text, and use <code>text-decoration: underline;</code> to make links recognizable. You can also style links when users hover over them using the <code>a:hover</code> pseudo-class, perhaps changing the color or removing the underline.</p>
+
+            <div class="code-example">
+                <code>/* styles.css */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 36px;
+    color: #2563eb;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto 20px;
+}
+
+a {
+    color: #2563eb;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: #1e40af;
+    text-decoration: none;
+}</code>
+            </div>
+
+            <p>After saving both files, open your HTML file in a web browser. You should see your content styled according to the CSS rules you wrote. The page should have a light background, centered and readable text, and styled headings and links. Experiment with changing values in your CSS file, saving, and refreshing the browser to see how different property values affect the appearance.</p>
+
+            <p>This process of writing HTML for structure and CSS for presentation demonstrates the separation of concerns that makes web development maintainable. You can completely redesign your page by modifying only the CSS file, without changing any HTML content.</p>
+        </div>
+
+        <div class="exercise">
+            <h2>Practice Opportunity</h2>
+            <p>Create an HTML page about a place you'd like to visit, and style it with an external CSS file. Include at least one heading, three paragraphs, and two links. In your CSS file, set different colors for the heading and body text, choose appropriate font sizes, add spacing using margins and padding, and style the links to change appearance when hovered over. Experiment with the background-color of the body and see how different color combinations affect readability and visual appeal.</p>
+
+            <p>After you've styled your page, try modifying various property values in your CSS file and observe how the changes affect the appearance. Understanding how each property impacts the visual design helps you develop an intuitive sense for CSS. Pay attention to how colors work together, how spacing affects readability, and how font choices influence the page's feel.</p>
+        </div>
+
+        <div class="concept-section">
+            <h2>Summary of Key Concepts</h2>
+            <p>CSS controls the visual presentation of HTML content, working alongside HTML to create styled web pages. CSS rules consist of selectors that target HTML elements and declaration blocks containing property-value pairs that describe how those elements should appear. The most common way to include CSS is through external stylesheets linked in the HTML head section.</p>
+
+            <p>The fundamental CSS properties you've learned - color, background-color, font-family, font-size, margin, padding, and border - provide the building blocks for styling any web page. Understanding these properties and how to combine them allows you to create visually appealing, readable websites. Remember that CSS focuses on presentation while HTML focuses on structure, and keeping these concerns separate makes your code more maintainable and flexible.</p>
+        </div>
+
+        <div class="concept-section">
+            <h2>Next Steps</h2>
+            <p>Now that you understand basic CSS properties, Lesson 04 will explore CSS layout techniques. You'll learn how to control where elements appear on the page, how to create multi-column layouts, and how to position elements precisely using techniques like flexbox and CSS Grid.</p>
+        </div>
+
+        <div class="concept-section">
+            <h2>Bibliography</h2>
+            <p>Mozilla Developer Network. "CSS: Cascading Style Sheets." MDN Web Docs. <a href="https://developer.mozilla.org/en-US/docs/Web/CSS">https://developer.mozilla.org/en-US/docs/Web/CSS</a></p>
+            
+            <p>Mozilla Developer Network. "CSS Basics." MDN Web Docs. <a href="https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/CSS_basics">https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/CSS_basics</a></p>
+
+            <p>W3Schools. "CSS Tutorial." W3Schools. <a href="https://www.w3schools.com/css/">https://www.w3schools.com/css/</a></p>
+
+            <p>The Odin Project. "CSS Foundations." The Odin Project Curriculum. <a href="https://www.theodinproject.com/paths/foundations/courses/foundations">https://www.theodinproject.com/paths/foundations/courses/foundations</a></p>
+        </div>
+
+        <div class="nav-links" style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border-color);">
+            <a href="../index.html">Back to Home</a> | 
+            <a href="02-html-semantics.html">Previous Lesson</a> | 
+            <a href="04-css-layout.html">Next Lesson: CSS Layout</a>
+        </div>
+    </div>
+</body>
+</html>
+

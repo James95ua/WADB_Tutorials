@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<!-- 
+    Website Starter Template
+    
+    This template provides a complete page structure with semantic HTML
+    and basic CSS styling. It includes:
+    - Proper HTML5 semantic elements (header, nav, main, footer)
+    - Responsive design considerations
+    - Basic styling to get you started
+    - Comments explaining each section
+    
+    Customize the content, colors, and styles to match your project.
+-->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Starter Template</title>
+    
+    <style>
+        /* 
+            CSS Reset and Base Styles
+            These styles set up consistent defaults across different browsers.
+        */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        /* 
+            The box-sizing: border-box makes width calculations include
+            padding and borders, which makes layout calculations easier.
+        */
+        
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            /* 
+                Font stacks provide fallback options. If Arial isn't available,
+                the browser tries Helvetica, then any sans-serif font.
+            */
+            line-height: 1.6;
+            /* 
+                Line height affects readability. 1.6 means 1.6 times the font size,
+                creating comfortable spacing between lines.
+            */
+            color: #333;
+            /* 
+                Dark gray text on white provides good contrast and readability.
+            */
+        }
+        
+        /* 
+            Header Styles
+            The header typically contains site branding and navigation.
+        */
+        header {
+            background-color: #2563eb;
+            /* 
+                Blue background creates visual distinction for the header.
+                Change this color to match your site's color scheme.
+            */
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        header h1 {
+            margin-bottom: 0.5rem;
+        }
+        
+        /* 
+            Navigation Styles
+            Navigation should be easy to use and clearly visible.
+        */
+        nav {
+            background-color: #1e40af;
+            padding: 1rem 0;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            /* 
+                Flexbox makes it easy to arrange navigation items horizontally.
+                Gap creates consistent spacing between items.
+            */
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            /* 
+                Padding creates a larger clickable area, improving usability
+                especially on mobile devices.
+            */
+        }
+        
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            /* 
+                Hover effects provide visual feedback when users interact.
+                The rgba value creates a semi-transparent white overlay.
+            */
+        }
+        
+        /* 
+            Main Content Area
+            The main element contains the primary content of the page.
+        */
+        main {
+            max-width: 1200px;
+            /* 
+                Maximum width prevents content from becoming too wide on large screens,
+                improving readability.
+            */
+            margin: 0 auto;
+            /* 
+                margin: 0 auto centers the content horizontally.
+            */
+            padding: 2rem;
+        }
+        
+        section {
+            margin: 2rem 0;
+            /* 
+                Consistent spacing between sections creates visual organization.
+            */
+        }
+        
+        h2 {
+            color: #2563eb;
+            margin-bottom: 1rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+            /* 
+                Bottom margin creates space between paragraphs.
+            */
+        }
+        
+        /* 
+            Footer Styles
+            The footer typically contains copyright and contact information.
+        */
+        footer {
+            background-color: #1f2937;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        
+        /* 
+            Responsive Design
+            Media queries adjust styles for smaller screens.
+        */
+        @media (max-width: 768px) {
+            /* 
+                These styles apply when the screen width is 768 pixels or less,
+                typically targeting tablets and mobile devices.
+            */
+            nav ul {
+                flex-direction: column;
+                /* 
+                    Stack navigation vertically on small screens for better usability.
+                */
+                gap: 0.5rem;
+            }
+            
+            main {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        Header Element
+        Contains site title and introductory content.
+    -->
+    <header>
+        <h1>Website Title</h1>
+        <p>Tagline or brief description of your site</p>
+    </header>
+    
+    <!-- 
+        Navigation Element
+        Contains links to main sections of your site.
+    -->
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <!-- 
+        Main Content Area
+        Contains the primary content of your page.
+        Each section can represent a different topic or area.
+    -->
+    <main>
+        <section id="home">
+            <h2>Welcome</h2>
+            <p>This is the home section of your website. Add your introductory content here.</p>
+        </section>
+        
+        <section id="about">
+            <h2>About</h2>
+            <p>Use this section to tell visitors about yourself, your business, or your project.</p>
+        </section>
+        
+        <section id="services">
+            <h2>Services</h2>
+            <p>Describe what you offer or what your website provides to visitors.</p>
+        </section>
+        
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>Include contact information or a contact form here.</p>
+        </section>
+    </main>
+    
+    <!-- 
+        Footer Element
+        Contains copyright information and additional links.
+    -->
+    <footer>
+        <p>&copy; 2024 Your Name or Organization. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+

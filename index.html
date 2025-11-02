@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<!-- 
+    This is the main homepage for the HTML and CSS tutorial website.
+    
+    The page structure demonstrates semantic HTML5:
+    - Header contains site navigation
+    - Main contains all primary content sections
+    - Footer contains site information
+    
+    Students can learn from this code by examining how semantic HTML
+    is used to structure a complete website page.
+-->
+<html lang="en">
+<head>
+    <!-- 
+        The head section contains metadata about the page.
+        This information is not visible to users but is important
+        for browsers, search engines, and accessibility tools.
+    -->
+    <meta charset="UTF-8">
+    <!-- 
+        Character encoding tells the browser which character set to use.
+        UTF-8 supports most languages and special characters.
+    -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 
+        Viewport meta tag is essential for responsive design.
+        It tells mobile browsers to use the device width instead of
+        assuming a desktop width, making the site mobile-friendly.
+    -->
+    <title>Learn HTML & CSS - Build Your First Website</title>
+    <!-- 
+        The title appears in the browser tab and in search results.
+        It should be descriptive and concise.
+    -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/navigation.css">
+    <link rel="stylesheet" href="css/home.css">
+    <!-- 
+        Links to external CSS files that style this page.
+        base.css contains foundational styles shared across all pages.
+        navigation.css contains header and navigation styles.
+        home.css contains homepage-specific styles.
+        This demonstrates separation of concerns: base styles, navigation,
+        and page-specific styles are organized into separate files.
+    -->
+</head>
+<body>
+    <!-- 
+        The body contains all visible content on the page.
+        This is where users see headings, paragraphs, links, etc.
+    -->
+    <!-- 
+        Skip to Content Link
+        
+        This link allows keyboard users to skip past the navigation and jump
+        directly to the main content. It's visually hidden by default but becomes
+        visible when focused. This improves accessibility for users who navigate
+        with keyboards or screen readers.
+    -->
+    <a href="#home" class="skip-link">Skip to main content</a>
+    <header>
+        <!-- 
+            Header element contains introductory content or navigation.
+            Semantic HTML5 element that helps screen readers and
+            search engines understand the page structure.
+        -->
+        <nav class="navbar">
+            <!-- 
+                Navigation element wraps navigation links.
+                The 'navbar' class is used for CSS styling.
+            -->
+            <div class="container">
+                <!-- 
+                    Container div limits content width and centers it.
+                    This is a common pattern for responsive design.
+                -->
+                <h1 class="logo">Learn HTML & CSS</h1>
+                <!-- 
+                    Main site title/logo. Using h1 indicates this is
+                    the primary heading of the entire page.
+                -->
+                <ul class="nav-links">
+                    <!-- 
+                        Unordered list for navigation items.
+                        Lists are semantic and accessible for navigation.
+                    -->
+                    <li><a href="#home">Home</a></li>
+                    <!-- 
+                        Each list item contains an anchor (link) tag.
+                        The href with # links to sections on the same page
+                        (internal navigation).
+                    -->
+                    <li><a href="#lessons">Lessons</a></li>
+                    <li><a href="#examples">Examples</a></li>
+                    <li><a href="#templates">Templates</a></li>
+                    <li><a href="#github">GitHub</a></li>
+                    <li><a href="design-resources.html">Design Resources</a></li>
+                    <!-- 
+                        This link goes to a separate page (not a section).
+                        No # means it's a file path, not an anchor link.
+                    -->
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="container">
+                <h2>Welcome to Your Web Development Journey!</h2>
+                <p class="hero-subtitle">Learn HTML and CSS from scratch and build your own website using GitHub</p>
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <p>This comprehensive tutorial is designed for <strong>complete beginners</strong>. You'll learn:</p>
+                        <ul class="features-list">
+                            <li>HTML basics and semantic structure</li>
+                            <li>CSS styling and layout techniques</li>
+                            <li>Responsive design principles</li>
+                            <li>GitHub workflow (repos, commits, branches, PRs)</li>
+                            <li>Deploying your site with GitHub Pages</li>
+                        </ul>
+                        <div class="cta-buttons">
+                            <a href="#lessons" class="btn btn-primary">Start Learning</a>
+                            <a href="#examples" class="btn btn-secondary">View Examples</a>
+                        </div>
+                    </div>
+                    <div class="hero-preview">
+                        <div class="code-preview">
+                            <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;My First Page&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Hello World!&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="lessons" class="lessons-section">
+            <div class="container">
+                <h2>Interactive Lessons</h2>
+                <p class="section-intro">Follow along step-by-step. Each lesson builds on the previous one.</p>
+                <div class="lessons-grid">
+                    <div class="lesson-card">
+                        <div class="lesson-number">01</div>
+                        <h3>HTML Basics</h3>
+                        <p>Learn the foundation of web pages: tags, elements, and structure</p>
+                        <a href="lessons/01-html-basics.html" class="lesson-link">Start Lesson</a>
+                    </div>
+                    <div class="lesson-card">
+                        <div class="lesson-number">02</div>
+                        <h3>Semantic HTML</h3>
+                        <p>Use meaningful tags to create well-structured, accessible pages</p>
+                        <a href="lessons/02-html-semantics.html" class="lesson-link">Start Lesson →</a>
+                    </div>
+                    <div class="lesson-card">
+                        <div class="lesson-number">03</div>
+                        <h3>CSS Basics</h3>
+                        <p>Add style and visual appeal to your HTML pages</p>
+                        <a href="lessons/03-css-basics.html" class="lesson-link">Start Lesson →</a>
+                    </div>
+                    <div class="lesson-card">
+                        <div class="lesson-number">04</div>
+                        <h3>CSS Layout</h3>
+                        <p>Master layout techniques: flexbox, grid, and positioning</p>
+                        <a href="lessons/04-css-layout.html" class="lesson-link">Start Lesson →</a>
+                    </div>
+                    <div class="lesson-card">
+                        <div class="lesson-number">05</div>
+                        <h3>Responsive Design</h3>
+                        <p>Make your websites look great on all devices</p>
+                        <a href="lessons/05-responsive-design.html" class="lesson-link">Start Lesson →</a>
+                    </div>
+                    <div class="lesson-card">
+                        <div class="lesson-number">06</div>
+                        <h3>GitHub Setup</h3>
+                        <p>Create your GitHub account and first repository</p>
+                        <a href="lessons/06-github-setup.html" class="lesson-link">Start Lesson →</a>
+                    </div>
+                    <div class="lesson-card">
+                        <div class="lesson-number">07</div>
+                        <h3>GitHub Workflow</h3>
+                        <p>Learn commits, branches, and pull requests</p>
+                        <a href="lessons/07-github-workflow.html" class="lesson-link">Start Lesson →</a>
+                    </div>
+                    <div class="lesson-card">
+                        <div class="lesson-number">08</div>
+                        <h3>GitHub Pages</h3>
+                        <p>Deploy your website for the world to see</p>
+                        <a href="lessons/08-github-pages.html" class="lesson-link">Start Lesson →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="examples" class="examples-section">
+            <div class="container">
+                <h2>Code Examples</h2>
+                <p class="section-intro">Study real examples from simple to complex</p>
+                <div class="examples-grid">
+                    <div class="example-card">
+                        <h3>Hello World</h3>
+                        <p>Your very first HTML page</p>
+                        <a href="examples/hello-world.html" class="example-link">View Example</a>
+                    </div>
+                    <div class="example-card">
+                        <h3>First Page</h3>
+                        <p>A complete page with HTML and CSS</p>
+                        <a href="examples/first-page.html" class="example-link">View Example →</a>
+                    </div>
+                    <div class="example-card">
+                        <h3>Resume Template</h3>
+                        <p>Learn to structure content effectively</p>
+                        <a href="examples/resume-template.html" class="example-link">View Example →</a>
+                    </div>
+                    <div class="example-card">
+                        <h3>Portfolio Starter</h3>
+                        <p>Build a showcase for your work</p>
+                        <a href="examples/portfolio-starter.html" class="example-link">View Example →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="design" class="design-section" style="background-color: #f0fdf4; padding: 4rem 0;">
+            <div class="container">
+                <h2>Design Resources</h2>
+                <p class="section-intro">Learn about typography, readability, and accessibility</p>
+                <div style="max-width: 600px; margin: 2rem auto; text-align: center;">
+                    <p style="margin-bottom: 2rem;">Understanding good design principles helps you create websites that are not only functional but also professional, readable, and accessible to everyone.</p>
+                    <a href="design-resources.html" class="btn btn-primary">Explore Design Resources</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="templates" class="templates-section">
+            <div class="container">
+                <h2>Starter Templates</h2>
+                <p class="section-intro">Ready-to-use templates with detailed comments</p>
+                <div class="templates-grid">
+                    <div class="template-card">
+                        <h3>Basic HTML</h3>
+                        <p>Minimal template to get started</p>
+                        <a href="templates/basic.html" class="template-link">Get Template</a>
+                    </div>
+                    <div class="template-card">
+                        <h3>Website Starter</h3>
+                        <p>Full-featured page template</p>
+                        <a href="templates/website-starter.html" class="template-link">Get Template →</a>
+                    </div>
+                    <div class="template-card">
+                        <h3>Portfolio</h3>
+                        <p>Professional portfolio template</p>
+                        <a href="templates/portfolio.html" class="template-link">Get Template →</a>
+                    </div>
+                    <div class="template-card">
+                        <h3>Blog</h3>
+                        <p>Blog layout template</p>
+                        <a href="templates/blog.html" class="template-link">Get Template →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="explore" class="explore-section" style="background-color: #f0f9ff; padding: 4rem 0;">
+            <div class="container">
+                <h2>How to Use This Tutorial</h2>
+                <p class="section-intro">This tutorial is designed to guide you from complete beginner to publishing your own website. Here's how to get the most out of your learning journey.</p>
+                <div style="max-width: 800px; margin: 0 auto; text-align: left;">
+                    <p>Start with the lessons in order, beginning with HTML Basics. Each lesson builds on previous concepts, so working through them sequentially helps you understand how everything connects. Don't rush - take time to complete the practice exercises and experiment with the examples provided.</p>
+                    <p>As you progress through lessons, refer to the code examples when you need to see concepts in action. Study how the examples are structured and try modifying them to see how changes affect the result. Use the starter templates when you're ready to build your own projects - they provide foundations you can customize.</p>
+                    <p>When you reach the GitHub lessons, you'll learn to store your code and publish your websites. Follow the GitHub guides step-by-step, and don't hesitate to revisit them as needed. The design resources section provides guidance on making your websites look professional and accessible.</p>
+                    <p>Remember: web development is a skill built through practice. Every lesson includes opportunities to apply what you've learned. Take time to experiment, make mistakes, and learn from them. This tutorial provides the foundation, but your curiosity and practice will take you further.</p>
+                    <div style="text-align: center; margin-top: 2rem;">
+                        <a href="#lessons" class="btn btn-primary">Start Your Journey</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="github" class="github-section">
+            <div class="container">
+                <h2>GitHub Guides</h2>
+                <p class="section-intro">Step-by-step guides for using GitHub with your projects</p>
+                <div class="github-guides-list">
+                    <div class="guide-item">
+                        <span class="guide-number">01</span>
+                        <div class="guide-content">
+                            <h3><a href="github-guides/01-getting-started.html">Getting Started with GitHub</a></h3>
+                            <p>Create your account and understand the basics</p>
+                        </div>
+                    </div>
+                    <div class="guide-item">
+                        <span class="guide-number">02</span>
+                        <div class="guide-content">
+                            <h3><a href="github-guides/02-creating-repo.html">Creating Your First Repository</a></h3>
+                            <p>Learn how to create and initialize a repo</p>
+                        </div>
+                    </div>
+                    <div class="guide-item">
+                        <span class="guide-number">03</span>
+                        <div class="guide-content">
+                            <h3><a href="github-guides/03-first-commit.html">Making Your First Commit</a></h3>
+                            <p>Save your code with version control</p>
+                        </div>
+                    </div>
+                    <div class="guide-item">
+                        <span class="guide-number">04</span>
+                        <div class="guide-content">
+                            <h3><a href="github-guides/04-branches-prs.html">Branches and Pull Requests</a></h3>
+                            <p>Organize your work and collaborate effectively</p>
+                        </div>
+                    </div>
+                    <div class="guide-item">
+                        <span class="guide-number">05</span>
+                        <div class="guide-content">
+                            <h3><a href="github-guides/05-github-pages.html">Deploying with GitHub Pages</a></h3>
+                            <p>Publish your website for free</p>
+                        </div>
+                    </div>
+                    <div class="guide-item">
+                        <span class="guide-number">06</span>
+                        <div class="guide-content">
+                            <h3><a href="github-guides/06-collaboration.html">Collaboration Workflows</a></h3>
+                            <p>Work with others on shared projects</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 HTML & CSS Tutorial. Start building today!</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

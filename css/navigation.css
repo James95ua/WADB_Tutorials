@@ -1,0 +1,255 @@
+/* 
+    Navigation Styles
+    
+    This file contains all header and navigation styles, including
+    both full navigation (homepage) and minimal navigation (lesson/guide pages)
+    with hamburger menu functionality.
+    
+    Students can learn about responsive navigation patterns and
+    accessible menu design.
+*/
+
+/* 
+    Header Base Styles
+    
+    The header contains the site navigation and stays visible at the top
+    of the page as users scroll. This section demonstrates flexbox layout
+    and sticky positioning.
+*/
+header {
+    background-color: var(--bg-color);              /* White background */
+    border-bottom: 1px solid var(--border-color);  /* Subtle bottom border */
+    position: sticky;  /* Sticks to top when scrolling - stays visible */
+    top: 0;            /* Position at top of viewport when sticky */
+    z-index: 100;      /* Ensures header appears above other content */
+    box-shadow: var(--shadow);  /* Adds shadow below header for depth */
+}
+
+.navbar {
+    padding: 1rem 0;  /* Vertical padding: 1rem top and bottom, 0 left and right */
+}
+
+/* 
+    Flexbox Layout for Navigation
+    
+    display: flex creates a flexible container that arranges children horizontally
+    by default. justify-content: space-between puts maximum space between items,
+    pushing the logo to the left and nav links to the right.
+    align-items: center vertically centers items within the flex container.
+*/
+.navbar .container {
+    display: flex;                      /* Creates flexible layout */
+    justify-content: space-between;     /* Maximum space between logo and nav */
+    align-items: center;                /* Vertically centers all items */
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.logo:hover {
+    opacity: 0.8;
+}
+
+/* 
+    Full Navigation Styles (Homepage)
+    
+    When navigation is expanded or on homepage, all links are visible.
+*/
+.nav-links {
+    display: flex;        /* Arranges list items horizontally */
+    list-style: none;     /* Removes default bullet points */
+    gap: 2rem;            /* Space between each navigation link */
+    margin: 0;            /* Removes default list margin */
+    padding: 0;           /* Removes default list padding */
+}
+
+/* 
+    Navigation Link Styles
+    
+    Links are styled to match the site design. The transition property
+    creates smooth color changes when hovering.
+*/
+.nav-links a {
+    text-decoration: none;        /* Removes default underline */
+    color: var(--text-color);      /* Default link color */
+    font-weight: 500;              /* Medium font weight */
+    transition: color 0.3s;        /* Smooth color change over 0.3 seconds */
+}
+
+/* 
+    Hover State for Links
+    
+    Pseudo-class :hover styles elements when users move their mouse over them.
+    This provides visual feedback that the link is interactive.
+*/
+.nav-links a:hover {
+    color: var(--primary-color);  /* Changes to blue on hover */
+}
+
+/* 
+    Focus State for Navigation Links
+    
+    The :focus pseudo-class styles elements when they receive keyboard focus.
+    This is essential for keyboard accessibility - users navigating with Tab
+    need to see which element is currently focused.
+*/
+.nav-links a:focus {
+    outline: 2px solid var(--primary-color);  /* Blue outline for visibility */
+    outline-offset: 2px;                      /* Space between outline and element */
+    border-radius: 4px;                       /* Rounded corners on focus outline */
+}
+
+/* 
+    Active Navigation State
+    
+    The .active class is added by JavaScript when a navigation link corresponds
+    to the currently visible section. This provides visual feedback to users
+    showing which section of the page they're viewing.
+*/
+.nav-links a.active {
+    color: var(--primary-color);         /* Blue color for active state */
+    border-bottom: 2px solid var(--primary-color);  /* Underline indicator */
+    padding-bottom: 2px;                  /* Space for the underline */
+}
+
+/* 
+    Hamburger Menu Button
+    
+    Used for minimal navigation on lesson/guide pages.
+    Hidden by default on pages with full navigation.
+*/
+.menu-toggle {
+    display: none;  /* Hidden by default */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    color: var(--text-color);
+    transition: color 0.3s;
+}
+
+.menu-toggle:hover,
+.menu-toggle:focus {
+    color: var(--primary-color);
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+/* 
+    Minimal Navigation Styles
+    
+    For lesson and guide pages, navigation is collapsed by default
+    and can be expanded via hamburger menu.
+*/
+.navbar.minimal .nav-links {
+    display: none;  /* Hidden by default on minimal navigation pages */
+    position: absolute;
+    top: 100%;      /* Positioned directly below the header */
+    left: 0;
+    right: 0;
+    background-color: var(--bg-color);
+    flex-direction: column;
+    gap: 0;
+    padding: 1rem 0;
+    box-shadow: var(--shadow-lg);
+    border-top: 1px solid var(--border-color);
+}
+
+/* Navigation is visible when expanded */
+.navbar.minimal .nav-links.expanded {
+    display: flex;
+}
+
+.navbar.minimal .nav-links li {
+    width: 100%;
+}
+
+.navbar.minimal .nav-links a {
+    display: block;
+    padding: 0.75rem 2rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.navbar.minimal .nav-links a:hover {
+    background-color: var(--bg-light);
+}
+
+/* Show hamburger menu button on minimal navigation pages */
+.navbar.minimal .menu-toggle {
+    display: block;
+}
+
+/* 
+    Menu Invitation Text
+    
+    Optional text that invites users to click for more navigation.
+*/
+.menu-invitation {
+    display: none;
+    font-size: 0.875rem;
+    color: var(--text-light);
+    margin-left: 0.5rem;
+}
+
+.navbar.minimal .menu-invitation {
+    display: inline;
+}
+
+/* 
+    Responsive Navigation
+    
+    On mobile devices, even the homepage uses a hamburger menu
+    for better usability on small screens.
+*/
+@media (max-width: 768px) {
+    /* Homepage navigation becomes hamburger menu on mobile */
+    .navbar:not(.minimal) .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--bg-color);
+        flex-direction: column;
+        gap: 0;
+        padding: 1rem 0;
+        box-shadow: var(--shadow-lg);
+        border-top: 1px solid var(--border-color);
+    }
+    
+    .navbar:not(.minimal) .nav-links.expanded {
+        display: flex;
+    }
+    
+    .navbar:not(.minimal) .nav-links li {
+        width: 100%;
+    }
+    
+    .navbar:not(.minimal) .nav-links a {
+        display: block;
+        padding: 0.75rem 2rem;
+        border-bottom: 1px solid var(--border-color);
+    }
+    
+    .navbar:not(.minimal) .nav-links a:hover {
+        background-color: var(--bg-light);
+    }
+    
+    /* Show hamburger menu on mobile for all pages */
+    .menu-toggle {
+        display: block;
+    }
+    
+    /* Tighter spacing for navigation on mobile */
+    .nav-links {
+        gap: 1rem;        /* Reduced spacing between links */
+        font-size: 0.9rem; /* Slightly smaller text */
+    }
+}
+

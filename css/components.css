@@ -1,0 +1,84 @@
+/* 
+    Shared Components Styles
+    
+    This file contains styles for reusable components used across
+    multiple page types (lessons, guides, etc.).
+    
+    Students can learn how to create reusable component styles that
+    work consistently across different pages.
+*/
+
+/* 
+    Learning Outcomes Box
+    
+    This component displays learning objectives and prerequisites.
+    Used in both lesson and guide pages to set expectations.
+*/
+.learning-outcomes {
+    background-color: #e0f2fe;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    border-left: 4px solid var(--primary-color);
+}
+
+/* 
+    Concept Section
+    
+    Used to group related content within lessons and guides.
+    Provides consistent spacing between major topics.
+*/
+.concept-section {
+    margin-bottom: 3rem;
+}
+
+/* 
+    Code Example Container
+    
+    Styles code blocks to make them easily readable.
+    Dark background with light text creates high contrast
+    and clearly distinguishes code from regular text.
+*/
+.code-example {
+    background-color: #1e293b;
+    color: #e2e8f0;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin: 1rem 0;
+    overflow-x: auto;  /* Allows horizontal scrolling for long lines */
+}
+
+.code-example code {
+    font-family: 'Courier New', monospace;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* 
+    Worked Example Box
+    
+    Provides step-by-step examples that walk students through
+    concepts with practical demonstrations.
+*/
+.worked-example {
+    background-color: #f0f9ff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+}
+
+/* 
+    Exercise Box
+    
+    Styles practice exercises and challenges.
+    Distinctive yellow/orange color helps students
+    identify exercises they should complete.
+*/
+.exercise {
+    background-color: #fef3c7;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin: 2rem 0;
+    border-left: 4px solid #f59e0b;
+}
+

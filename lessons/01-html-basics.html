@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 01: HTML Basics</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/navigation.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/lessons.css">
+    <!-- 
+        Links to external CSS files organized by purpose.
+        base.css: foundational styles and CSS variables
+        navigation.css: header and navigation (minimal on lesson pages)
+        components.css: shared components like learning-outcomes and code-example
+        lessons.css: lesson page-specific styles
+    -->
+    <script src="../script.js"></script>
+</head>
+<body>
+    <!-- 
+        Minimal Navigation Header
+        
+        On lesson pages, navigation is collapsed by default with a hamburger menu.
+        This keeps the page focused on content while still providing access
+        to site navigation when needed.
+    -->
+    <header>
+        <nav class="navbar minimal">
+            <div class="container">
+                <a href="../index.html" class="logo">Learn HTML & CSS</a>
+                <button class="menu-toggle" aria-label="Open navigation menu" aria-expanded="false">
+                    ☰ Menu
+                </button>
+                <ul class="nav-links">
+                    <li><a href="../index.html#home">Home</a></li>
+                    <li><a href="../index.html#lessons">Lessons</a></li>
+                    <li><a href="../index.html#examples">Examples</a></li>
+                    <li><a href="../index.html#templates">Templates</a></li>
+                    <li><a href="../index.html#github">GitHub</a></li>
+                    <li><a href="../design-resources.html">Design Resources</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="lesson-container">
+        <div class="lesson-nav-links">
+            <a href="../index.html">Back to Home</a> | 
+            <a href="02-html-semantics.html">Next Lesson: Semantic HTML</a>
+        </div>
+
+        <h1>Lesson 01: HTML Basics</h1>
+
+        <div class="learning-outcomes">
+            <h2>Learning Outcomes</h2>
+            <p>By the end of this lesson, you will be able to understand what HTML is and why it exists, identify the basic structure of an HTML document, recognize common HTML tags and understand their purpose, and create your first simple HTML page. These skills form the foundation for all web development work.</p>
+            
+            <h3>Prerequisites</h3>
+            <p>No prior coding experience is required for this lesson. You only need a text editor (like Notepad, TextEdit, or VS Code) and a web browser (Chrome, Firefox, Safari, or Edge) installed on your computer.</p>
+        </div>
+
+        <div class="concept-section">
+            <h2>What is HTML and Why Does It Matter?</h2>
+            <p>HTML stands for HyperText Markup Language. This name tells us something important about what HTML does. The word "markup" indicates that HTML doesn't create the content itself, but rather marks up or labels content to tell web browsers how to display and organize that content. HTML provides structure to web pages in the same way that a blueprint provides structure to a building.</p>
+
+            <p>When you visit a website, your web browser receives HTML code and interprets it to display the page you see. Without HTML, browsers would have no way to understand which parts of your content are headings, which are paragraphs, which are links, and so on. HTML acts as the universal language that allows any browser on any device to display web content in a consistent, structured way.</p>
+
+            <p>Understanding HTML matters because it forms the foundation of every website you see on the internet. Whether you're viewing a simple blog or a complex web application, HTML is always present, working behind the scenes to organize and structure the content. Learning HTML gives you the ability to create and modify web pages, which is an essential skill for web development, content creation, and digital communication.</p>
+        </div>
+
+        <div class="concept-section">
+            <h2>Understanding HTML and CSS as Files</h2>
+            <p>Before diving into writing HTML code, it's important to understand that HTML and CSS are simply text files saved on your computer. These files contain instructions written in special languages that web browsers can read and interpret. Just like you might create a document in a word processor and save it as a .docx file, you create web pages by writing HTML code and saving it as an .html file.</p>
+
+            <p>When you create an HTML file, you're creating a plain text file with special formatting. The file extension .html tells your computer and web browser that this file contains HTML code. Similarly, CSS files are saved with the .css extension. These extensions are important because they help your computer identify what type of file it is and which program should open it. When you double-click an HTML file, your computer knows to open it in a web browser rather than a text editor.</p>
+
+            <p>The process of working with HTML and CSS files follows a simple workflow. First, you open a text editor and create a new file. You write your HTML or CSS code in this file, then save it with the appropriate extension. Once saved, you can open the file in a web browser to see how it looks. When you want to make changes, you return to the text editor, modify the code, save the file again, and then refresh the browser to see your changes. This cycle of editing, saving, and refreshing is fundamental to web development.</p>
+
+            <p>Understanding this file-based workflow matters because it shows that web development doesn't require special software or complex setup. You can create HTML files using any text editor, from simple programs like Notepad on Windows or TextEdit on Mac to more advanced code editors like Visual Studio Code. The code you write is just text, saved in a file that browsers know how to interpret.</p>
+        </div>
+
+        <div class="worked-example">
+            <h2>Example: Creating and Saving Your First HTML File</h2>
+            <p>This example demonstrates the complete process of creating an HTML file, from opening a text editor to viewing it in a browser. Following these steps helps you understand how HTML files work on your computer.</p>
+
+            <p>Start by opening a text editor on your computer. If you're using Windows, you can use Notepad. If you're using a Mac, you can use TextEdit, but make sure to switch it to plain text mode by going to Format and selecting "Make Plain Text". Alternatively, if you have Visual Studio Code or another code editor installed, you can use that instead.</p>
+
+            <p>Create a new file in your text editor. Type or copy the following simple HTML code into the file:</p>
+
+            <div class="code-example">
+                <code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;title&gt;My First File&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Hello from my HTML file!&lt;/h1&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code>
+            </div>
+
+            <p>Now save this file. Choose File and then Save from your editor's menu. When the save dialog appears, navigate to a folder where you want to keep your web development projects. Create a new folder called "my-website" if you don't have one yet. For the filename, type "index.html" - make sure to include the .html extension. This extension is crucial because it tells your computer this is an HTML file.</p>
+
+            <p>After saving, navigate to the folder where you saved your file using your computer's file explorer or finder. You should see a file named "index.html". Notice how the file might have a browser icon, indicating your computer recognizes it as a web page. Double-click this file, and it should open in your default web browser, displaying "Hello from my HTML file!" as a heading.</p>
+
+            <p>Now let's practice the save and refresh cycle. Return to your text editor where you have the HTML file open. Change the heading text from "Hello from my HTML file!" to "I changed this text!". Save the file again using File and then Save, or by pressing Ctrl+S on Windows or Cmd+S on Mac. This updates the file on your computer with your new changes.</p>
+
+            <p>Return to your web browser where the HTML file is displayed. Click the refresh button or press F5 (or Cmd+R on Mac) to reload the page. You should now see "I changed this text!" instead of the original heading. This demonstrates how changes to your HTML file only appear in the browser after you save the file and refresh the page. Remembering to save and refresh is essential - your browser doesn't automatically detect file changes, so you need to refresh to see updates.</p>
+        </div>
+
+        <div class="concept-section">
+            <h2>The Basic Structure of an HTML Document</h2>
+            <p>Every HTML document follows a specific structure that tells the browser what type of document it is and how to interpret the content. This structure consists of several key elements that work together to create a valid web page.</p>
+
+            <p>The first line of every HTML document should be a document type declaration, written as <code>&lt;!DOCTYPE html&gt;</code>. This tells the browser that it's reading an HTML5 document, which is the current standard. While browsers are often forgiving if this line is missing, including it ensures your page will display correctly across all browsers and devices.</p>
+
+            <p>After the document type declaration, every HTML document is wrapped in an <code>&lt;html&gt;</code> tag. This tag tells the browser where the HTML content begins and ends. Inside the <code>&lt;html&gt;</code> tag, there are two main sections: the <code>&lt;head&gt;</code> section and the <code>&lt;body&gt;</code> section. The head section contains information about the document that isn't displayed on the page itself, such as the page title that appears in the browser tab, links to stylesheets, and other metadata. The body section contains all the visible content that users will see when they visit your page.</p>
+
+            <div class="code-example">
+                <code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;My First Page&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Welcome to My Website&lt;/h1&gt;
+    &lt;p&gt;This is my first HTML page.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code>
+            </div>
+
+            <p>The <code>lang="en"</code> attribute in the opening <code>&lt;html&gt;</code> tag specifies that the document is written in English. This helps screen readers and search engines understand the language of your content. The <code>&lt;meta charset="UTF-8"&gt;</code> line in the head section tells the browser which character encoding to use, ensuring that special characters and international characters display correctly.</p>
+        </div>
+
+        <div class="concept-section">
+            <h2>Understanding HTML Tags and Elements</h2>
+            <p>HTML uses tags to mark up content. Tags are written using angle brackets, with most tags coming in pairs: an opening tag and a closing tag. The opening tag begins with a less-than symbol followed by the tag name, and ends with a greater-than symbol. The closing tag is identical but includes a forward slash before the tag name. The content that appears between the opening and closing tags is what the browser will display or apply that tag's meaning to.</p>
+
+            <p>For example, if you want to create a paragraph, you would use the <code>&lt;p&gt;</code> tag. To mark where your paragraph begins, you write <code>&lt;p&gt;</code>, then type your paragraph content, and finally close the paragraph with <code>&lt;/p&gt;</code>. The browser interprets this and displays your text as a paragraph with appropriate spacing. This pairing of opening and closing tags creates what we call an HTML element.</p>
+
+            <p>Some tags are self-closing, meaning they don't require a closing tag. These are typically used for elements that don't contain content, such as line breaks or images. For example, <code>&lt;br&gt;</code> creates a line break and doesn't need a closing tag. However, in HTML5, you can also write it as <code>&lt;br /&gt;</code> if you prefer the explicit self-closing syntax.</p>
+
+            <p>Understanding tags is fundamental because every piece of content on a web page is marked up with tags. These tags don't just affect how content looks visually, but more importantly, they provide semantic meaning. When you use an <code>&lt;h1&gt;</code> tag, you're not just making text large and bold - you're declaring that this text is the main heading of the page. This semantic meaning is important for accessibility, search engines, and other tools that read web pages.</p>
+        </div>
+
+        <div class="concept-section">
+            <h2>Common HTML Tags You'll Use Regularly</h2>
+            <p>While HTML has many tags available, certain tags appear in almost every web page you'll create. Understanding these fundamental tags gives you the ability to create meaningful, well-structured web pages.</p>
+
+            <p>Heading tags, written as <code>&lt;h1&gt;</code> through <code>&lt;h6&gt;</code>, are used to create headings of different importance levels. The <code>&lt;h1&gt;</code> tag represents the most important heading on the page and is typically used for the main title. Each subsequent number represents a heading of lesser importance, allowing you to create a hierarchy of information. You should use only one <code>&lt;h1&gt;</code> per page, as this represents the main topic or title of the entire page. Using headings in a logical order helps users and search engines understand the structure of your content.</p>
+
+            <p>The paragraph tag, written as <code>&lt;p&gt;</code>, is used to wrap blocks of text content. When the browser encounters a paragraph tag, it displays the text with appropriate spacing before and after, creating visual separation between different paragraphs. This makes your content more readable and organized. Every paragraph you write should be wrapped in opening and closing paragraph tags.</p>
+
+            <p>The anchor tag, written as <code>&lt;a&gt;</code>, creates hyperlinks that allow users to navigate to other pages or sections. The anchor tag requires an attribute called <code>href</code> that specifies the destination of the link. Attributes provide additional information about HTML elements and are written inside the opening tag. For a link, you write the destination URL in the href attribute, like this: <code>&lt;a href="https://example.com"&gt;Click here&lt;/a&gt;</code>. The text between the opening and closing anchor tags is what users will see and click on.</p>
+
+            <p>Other essential tags you'll encounter frequently include the image tag <code>&lt;img&gt;</code> for displaying pictures, the strong tag <code>&lt;strong&gt;</code> for emphasizing important text, and the emphasis tag <code>&lt;em&gt;</code> for italicized emphasis. Each of these tags serves a specific purpose in marking up your content meaningfully.</p>
+        </div>
+
+        <div class="worked-example">
+            <h2>Example: Using Common HTML Tags</h2>
+            <p>This example demonstrates how to use several common HTML tags together to create a simple but complete web page. Seeing these tags work together helps you understand how they combine to create structured content.</p>
+
+            <p>Create a new HTML file and add the basic document structure we learned earlier. Inside the body section, let's add content using different tags. Start with an <code>&lt;h1&gt;</code> tag for the main title of your page. Following best practices, use only one <code>&lt;h1&gt;</code> per page.</p>
+
+            <div class="code-example">
+                <code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;My Learning Journey&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Learning Web Development&lt;/h1&gt;
+    
+    &lt;h2&gt;Getting Started&lt;/h2&gt;
+    &lt;p&gt;I'm learning HTML and CSS to build my own websites. This is exciting!&lt;/p&gt;
+    
+    &lt;h2&gt;What I've Learned&lt;/h2&gt;
+    &lt;p&gt;So far, I understand how HTML tags work. The &lt;strong&gt;strong&lt;/strong&gt; tag makes text bold, and the &lt;em&gt;emphasis&lt;/em&gt; tag makes text italic.&lt;/p&gt;
+    
+    &lt;p&gt;Visit &lt;a href="https://www.example.com"&gt;this example website&lt;/a&gt; to see more.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code>
+            </div>
+
+            <p>Save this file with an .html extension and open it in your browser. You'll see the heading "Learning Web Development" displayed prominently, followed by two smaller headings. Notice how the paragraphs provide content under each heading, and how the link appears in a different color, indicating it's clickable. The <code>&lt;strong&gt;</code> text appears bold, and the <code>&lt;em&gt;</code> text appears in italics.</p>
+
+            <p>Experiment with this example by changing the text content, adding more paragraphs, or including additional headings. Each time you make a change, save the file and refresh your browser to see the results. This practice helps you understand how each tag affects the display of your content.</p>
+        </div>
+
+        <div class="worked-example">
+            <h2>Worked Example: Creating Your First HTML Page</h2>
+            <p>Creating your first HTML page involves several steps, and understanding why each step matters will help you remember the process. We'll create a simple page that displays a greeting and a short paragraph.</p>
+
+            <p>First, open a text editor on your computer. You can use any plain text editor - Notepad on Windows, TextEdit on Mac (making sure it's in plain text mode), or a code editor like Visual Studio Code if you have one installed. Create a new file and save it with the name "my-first-page.html". The .html extension is important because it tells your computer and browser that this file contains HTML code.</p>
+
+            <p>Now we'll write the HTML structure. Start with the document type declaration on the first line. This tells the browser we're using HTML5. On the next line, add the opening <code>&lt;html&gt;</code> tag with the language attribute. Then create the head section, which will contain metadata about our page. Inside the head, add a meta tag for character encoding, and a title tag with text that describes your page. The title text will appear in the browser tab when someone visits your page.</p>
+
+            <p>After closing the head section with <code>&lt;/head&gt;</code>, open the body section where your visible content will go. Inside the body, add an <code>&lt;h1&gt;</code> heading tag with a greeting message. Follow this with a paragraph tag containing a sentence about what you're learning. Finally, close all the tags in the proper order: close the body, then close the html tag.</p>
+
+            <div class="code-example">
+                <code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;My First HTML Page&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Hello, World!&lt;/h1&gt;
+    &lt;p&gt;I'm learning HTML and this is my first web page.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code>
+            </div>
+
+            <p>To view your page, navigate to the folder where you saved your HTML file using your computer's file explorer. Double-click the file, and it should open in your default web browser. You should see your heading and paragraph displayed on the page. If something doesn't appear correctly, check that all your tags are properly closed and that you saved the file with the .html extension.</p>
+
+            <p>This simple example demonstrates the fundamental structure that every HTML document follows. As you continue learning, you'll add more content and tags, but the basic structure of document type, html tag, head section, and body section will remain constant across all your HTML pages.</p>
+        </div>
+
+        <div class="exercise">
+            <h2>Practice Opportunity</h2>
+            <p>Create an HTML page about a topic that interests you. Include a title in the head section, one main heading using the h1 tag, and at least three paragraphs using paragraph tags. Add a second-level heading using h2 somewhere in your content. Include one link to an external website using the anchor tag. Save your file and open it in a web browser to see how it looks.</p>
+
+            <p>When you're finished, compare your code structure to the worked example above. Make sure all your tags are properly opened and closed, and that your content appears in the browser as you expect. If something doesn't display correctly, check that you've closed all your tags and that your HTML structure follows the basic format we discussed.</p>
+        </div>
+
+        <div class="concept-section">
+            <h2>Summary of Key Concepts</h2>
+            <p>HTML provides the structural foundation for all web pages. It uses tags to mark up content, giving browsers instructions on how to organize and display information. Every HTML document follows a consistent structure with a document type declaration, an html element containing head and body sections, and proper use of tags to mark up content meaningfully.</p>
+
+            <p>The tags you've learned in this lesson - headings, paragraphs, links, and the basic document structure - form the building blocks you'll use in every web page you create. Understanding why HTML exists and how these basic tags work prepares you to build more complex pages as you continue learning. Remember that HTML is about meaning and structure, not visual appearance. The visual styling comes later when we learn CSS.</p>
+        </div>
+
+        <div class="concept-section">
+            <h2>Next Steps</h2>
+            <p>Once you're comfortable creating basic HTML pages with headings, paragraphs, and links, you're ready to move on to Lesson 02, which covers semantic HTML. Semantic HTML involves choosing the most meaningful tags for your content, which creates better structure and improves accessibility for all users.</p>
+        </div>
+
+        <div class="concept-section">
+            <h2>Bibliography</h2>
+            <p>Mozilla Developer Network. "HTML: HyperText Markup Language." MDN Web Docs. <a href="https://developer.mozilla.org/en-US/docs/Web/HTML">https://developer.mozilla.org/en-US/docs/Web/HTML</a></p>
+            
+            <p>Mozilla Developer Network. "HTML Elements Reference." MDN Web Docs. <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element">https://developer.mozilla.org/en-US/docs/Web/HTML/Element</a></p>
+
+            <p>W3Schools. "HTML Tutorial." W3Schools. <a href="https://www.w3schools.com/html/">https://www.w3schools.com/html/</a></p>
+
+            <p>The Odin Project. "HTML Foundations." The Odin Project Curriculum. <a href="https://www.theodinproject.com/paths/foundations/courses/foundations">https://www.theodinproject.com/paths/foundations/courses/foundations</a></p>
+        </div>
+
+        <div class="lesson-nav-links" style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border-color);">
+            <a href="../index.html">Back to Home</a> | 
+            <a href="02-html-semantics.html">Next Lesson: Semantic HTML</a>
+        </div>
+    </div>
+</body>
+</html>
+
