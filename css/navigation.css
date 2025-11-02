@@ -41,6 +41,34 @@ header {
     display: flex;                      /* Creates flexible layout */
     align-items: center;                /* Vertically centers all items */
     gap: 1rem;                          /* Space between menu button and logo */
+    position: relative;                 /* Allows absolute positioning of right-side elements */
+}
+
+/* Header right side - for About link and other actions */
+.header-right {
+    margin-left: auto;                  /* Pushes this to the right */
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.header-right a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.header-right a:hover {
+    color: var(--primary-color);
+    background-color: var(--bg-light);
+}
+
+.header-right a:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
 }
 
 .logo {
@@ -154,18 +182,20 @@ header {
     z-index: 1000;
     padding: 2rem 0;
     overflow-y: auto;
-    transform: translateX(-100%);
-    transition: transform 0.3s ease;
+    transform: translateX(-100%);  /* Hidden off-screen by default */
+    transition: transform 0.3s ease, visibility 0.3s ease;
     display: flex;
     flex-direction: column;
     gap: 0;
     list-style: none;
     margin: 0;
+    visibility: hidden;  /* Ensures menu is not accessible when hidden */
 }
 
 /* Menu slides in when expanded */
 .nav-links.expanded {
-    transform: translateX(0);
+    transform: translateX(0);  /* Slides into view */
+    visibility: visible;  /* Makes menu accessible */
 }
 
 .nav-links li {
@@ -246,6 +276,15 @@ header {
     
     .site-subtitle {
         font-size: 0.75rem;
+    }
+    
+    .header-right {
+        margin-left: 0.5rem;
+    }
+    
+    .header-right a {
+        font-size: 0.875rem;
+        padding: 0.375rem 0.75rem;
     }
 }
 

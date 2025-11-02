@@ -9,18 +9,22 @@
 /* 
     Search Container
     
-    Contains the search input and button, typically positioned
-    in the navigation area.
+    Contains the search input and button, centered in the header.
 */
 .search-container {
     position: relative;
     display: flex;
     align-items: center;
+    justify-content: center;  /* Centers the search horizontally */
     gap: 0.5rem;
     margin-top: 1rem;
     padding-top: 1rem;
+    padding-bottom: 1rem;
     border-top: 1px solid var(--border-color, #e2e8f0);
     width: 100%;
+    max-width: 600px;  /* Limits width for better appearance */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* 
@@ -39,6 +43,7 @@
     transition: all 0.2s ease;
     background-color: white;
     flex: 1;
+    margin: 0 auto;  /* Centers the input within container */
 }
 
 .search-input:focus {
@@ -243,8 +248,10 @@
 @media (max-width: 768px) {
     .search-container {
         width: 100%;
-        margin: 1rem 0;
-        margin-left: 0;
+        max-width: 100%;
+        margin: 1rem auto;
+        padding-left: 1rem;
+        padding-right: 1rem;
     }
     
     .search-input {
@@ -267,11 +274,11 @@
 }
 
 /* 
-    Search in navigation bar appears below menu
+    Search in navigation bar appears below menu, centered
 */
 .navbar.minimal .search-container {
-    margin-left: 0;
-    margin-right: 0;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 @media (max-width: 768px) {
